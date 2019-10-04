@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CambioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Cambio.dbo.CardMap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CardMap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="meaning" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="CardTable">
+          <Key>
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="GameId" Type="int" Nullable="false" />
+          <Property Name="OneOfHearts" Type="int" />
+          <Property Name="TwoOfHearts" Type="int" />
+          <Property Name="ThreeOfHearts" Type="int" />
+          <Property Name="FourOfHearts" Type="int" />
+          <Property Name="FiveOfHearts" Type="int" />
+          <Property Name="SixOfHearts" Type="int" />
+          <Property Name="SevenOfHearts" Type="int" />
+          <Property Name="EightOfHearts" Type="int" />
+          <Property Name="NineOfHearts" Type="int" />
+          <Property Name="TenOfHearts" Type="int" />
+          <Property Name="JackOfHearts" Type="int" />
+          <Property Name="QueenOfHearts" Type="int" />
+          <Property Name="KingOfHearts" Type="int" />
+          <Property Name="OneOfSpades" Type="int" />
+          <Property Name="TwoOfSpades" Type="int" />
+          <Property Name="ThreeOfSpades" Type="int" />
+          <Property Name="FourOfSpades" Type="int" />
+          <Property Name="FiveOfSpades" Type="int" />
+          <Property Name="SixOfSpades" Type="int" />
+          <Property Name="SevenOfSpades" Type="int" />
+          <Property Name="EightOfSpades" Type="int" />
+          <Property Name="NineOfSpades" Type="int" />
+          <Property Name="TenOfSpades" Type="int" />
+          <Property Name="JackOfSpades" Type="int" />
+          <Property Name="QueenOfSpades" Type="int" />
+          <Property Name="KingOfSpades" Type="int" />
+          <Property Name="OneOfClover" Type="int" />
+          <Property Name="TwoOfClover" Type="int" />
+          <Property Name="ThreeOfClover" Type="int" />
+          <Property Name="FourOfClover" Type="int" />
+          <Property Name="FiveOfClover" Type="int" />
+          <Property Name="SixOfClover" Type="int" />
+          <Property Name="SevenOfClover" Type="int" />
+          <Property Name="EightOfClover" Type="int" />
+          <Property Name="NineOfClover" Type="int" />
+          <Property Name="TenOfClover" Type="int" />
+          <Property Name="JackOfClover" Type="int" />
+          <Property Name="QueenOfClover" Type="int" />
+          <Property Name="KingOfClover" Type="int" />
+          <Property Name="OneOfDiamond" Type="int" />
+          <Property Name="TwoOfDiamond" Type="int" />
+          <Property Name="ThreeOfDiamond" Type="int" />
+          <Property Name="FourOfDiamond" Type="int" />
+          <Property Name="FiveOfDiamond" Type="int" />
+          <Property Name="SixOfDiamond" Type="int" />
+          <Property Name="SevenOfDiamond" Type="int" />
+          <Property Name="EightOfDiamond" Type="int" />
+          <Property Name="NineOfDiamond" Type="int" />
+          <Property Name="TenOfDiamond" Type="int" />
+          <Property Name="JackOfDiamond" Type="int" />
+          <Property Name="QueenOfDiamond" Type="int" />
+          <Property Name="KingOfDiamond" Type="int" />
+          <Property Name="FirstJoker" Type="int" />
+          <Property Name="SecondJoker" Type="int" />
+          <Property Name="ThirdJoker" Type="int" />
+        </EntityType>
+        <EntityType Name="GameInfo">
+          <Key>
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="GameId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateOfGame" Type="datetime" />
+          <Property Name="PlayerId1" Type="int" Nullable="false" />
+          <Property Name="PlayerId2" Type="int" Nullable="false" />
+          <Property Name="WinnerId" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserImage" Type="varchar(max)" />
+          <Property Name="userPassword" Type="varchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CardTable__GameI__1AD3FDA4">
+          <End Role="GameInfo" Type="Self.GameInfo" Multiplicity="1" />
+          <End Role="CardTable" Type="Self.CardTable" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="GameInfo">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="CardTable">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GameInfo__Player__619B8048">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="GameInfo" Type="Self.GameInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GameInfo">
+              <PropertyRef Name="PlayerId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GameInfo__Player__628FA481">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="GameInfo" Type="Self.GameInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GameInfo">
+              <PropertyRef Name="PlayerId2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CambioModelStoreContainer">
+          <EntitySet Name="CardTable" EntityType="Self.CardTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameInfo" EntityType="Self.GameInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CardMap" EntityType="Self.CardMap" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CardMap].[Id] AS [Id], 
+    [CardMap].[meaning] AS [meaning]
+    FROM [dbo].[CardMap] AS [CardMap]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__CardTable__GameI__1AD3FDA4" Association="Self.FK__CardTable__GameI__1AD3FDA4">
+            <End Role="GameInfo" EntitySet="GameInfo" />
+            <End Role="CardTable" EntitySet="CardTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GameInfo__Player__619B8048" Association="Self.FK__GameInfo__Player__619B8048">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="GameInfo" EntitySet="GameInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GameInfo__Player__628FA481" Association="Self.FK__GameInfo__Player__628FA481">
+            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="GameInfo" EntitySet="GameInfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CambioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CardTable">
+          <Key>
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="GameId" Type="Int32" Nullable="false" />
+          <Property Name="OneOfHearts" Type="Int32" />
+          <Property Name="TwoOfHearts" Type="Int32" />
+          <Property Name="ThreeOfHearts" Type="Int32" />
+          <Property Name="FourOfHearts" Type="Int32" />
+          <Property Name="FiveOfHearts" Type="Int32" />
+          <Property Name="SixOfHearts" Type="Int32" />
+          <Property Name="SevenOfHearts" Type="Int32" />
+          <Property Name="EightOfHearts" Type="Int32" />
+          <Property Name="NineOfHearts" Type="Int32" />
+          <Property Name="TenOfHearts" Type="Int32" />
+          <Property Name="JackOfHearts" Type="Int32" />
+          <Property Name="QueenOfHearts" Type="Int32" />
+          <Property Name="KingOfHearts" Type="Int32" />
+          <Property Name="OneOfSpades" Type="Int32" />
+          <Property Name="TwoOfSpades" Type="Int32" />
+          <Property Name="ThreeOfSpades" Type="Int32" />
+          <Property Name="FourOfSpades" Type="Int32" />
+          <Property Name="FiveOfSpades" Type="Int32" />
+          <Property Name="SixOfSpades" Type="Int32" />
+          <Property Name="SevenOfSpades" Type="Int32" />
+          <Property Name="EightOfSpades" Type="Int32" />
+          <Property Name="NineOfSpades" Type="Int32" />
+          <Property Name="TenOfSpades" Type="Int32" />
+          <Property Name="JackOfSpades" Type="Int32" />
+          <Property Name="QueenOfSpades" Type="Int32" />
+          <Property Name="KingOfSpades" Type="Int32" />
+          <Property Name="OneOfClover" Type="Int32" />
+          <Property Name="TwoOfClover" Type="Int32" />
+          <Property Name="ThreeOfClover" Type="Int32" />
+          <Property Name="FourOfClover" Type="Int32" />
+          <Property Name="FiveOfClover" Type="Int32" />
+          <Property Name="SixOfClover" Type="Int32" />
+          <Property Name="SevenOfClover" Type="Int32" />
+          <Property Name="EightOfClover" Type="Int32" />
+          <Property Name="NineOfClover" Type="Int32" />
+          <Property Name="TenOfClover" Type="Int32" />
+          <Property Name="JackOfClover" Type="Int32" />
+          <Property Name="QueenOfClover" Type="Int32" />
+          <Property Name="KingOfClover" Type="Int32" />
+          <Property Name="OneOfDiamond" Type="Int32" />
+          <Property Name="TwoOfDiamond" Type="Int32" />
+          <Property Name="ThreeOfDiamond" Type="Int32" />
+          <Property Name="FourOfDiamond" Type="Int32" />
+          <Property Name="FiveOfDiamond" Type="Int32" />
+          <Property Name="SixOfDiamond" Type="Int32" />
+          <Property Name="SevenOfDiamond" Type="Int32" />
+          <Property Name="EightOfDiamond" Type="Int32" />
+          <Property Name="NineOfDiamond" Type="Int32" />
+          <Property Name="TenOfDiamond" Type="Int32" />
+          <Property Name="JackOfDiamond" Type="Int32" />
+          <Property Name="QueenOfDiamond" Type="Int32" />
+          <Property Name="KingOfDiamond" Type="Int32" />
+          <Property Name="FirstJoker" Type="Int32" />
+          <Property Name="SecondJoker" Type="Int32" />
+          <Property Name="ThirdJoker" Type="Int32" />
+          <NavigationProperty Name="GameInfo" Relationship="Self.FK__CardTable__GameI__1AD3FDA4" FromRole="CardTable" ToRole="GameInfo" />
+        </EntityType>
+        <EntityType Name="GameInfo">
+          <Key>
+            <PropertyRef Name="GameId" />
+          </Key>
+          <Property Name="GameId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateOfGame" Type="DateTime" Precision="3" />
+          <Property Name="PlayerId1" Type="Int32" Nullable="false" />
+          <Property Name="PlayerId2" Type="Int32" Nullable="false" />
+          <Property Name="WinnerId" Type="Int32" />
+          <NavigationProperty Name="CardTable" Relationship="Self.FK__CardTable__GameI__1AD3FDA4" FromRole="GameInfo" ToRole="CardTable" />
+          <NavigationProperty Name="UserInfo" Relationship="Self.FK__GameInfo__Player__619B8048" FromRole="GameInfo" ToRole="UserInfo" />
+          <NavigationProperty Name="UserInfo1" Relationship="Self.FK__GameInfo__Player__628FA481" FromRole="GameInfo" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userPassword" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="GameInfoes" Relationship="Self.FK__GameInfo__Player__619B8048" FromRole="UserInfo" ToRole="GameInfo" />
+          <NavigationProperty Name="GameInfoes1" Relationship="Self.FK__GameInfo__Player__628FA481" FromRole="UserInfo" ToRole="GameInfo" />
+        </EntityType>
+        <EntityType Name="CardMap">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="meaning" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__CardTable__GameI__1AD3FDA4">
+          <End Role="GameInfo" Type="Self.GameInfo" Multiplicity="1" />
+          <End Role="CardTable" Type="Self.CardTable" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="GameInfo">
+              <PropertyRef Name="GameId" />
+            </Principal>
+            <Dependent Role="CardTable">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GameInfo__Player__619B8048">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="GameInfo" Type="Self.GameInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GameInfo">
+              <PropertyRef Name="PlayerId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GameInfo__Player__628FA481">
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+          <End Role="GameInfo" Type="Self.GameInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GameInfo">
+              <PropertyRef Name="PlayerId2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CambioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CardTables" EntityType="Self.CardTable" />
+          <EntitySet Name="GameInfoes" EntityType="Self.GameInfo" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+          <EntitySet Name="CardMaps" EntityType="Self.CardMap" />
+          <AssociationSet Name="FK__CardTable__GameI__1AD3FDA4" Association="Self.FK__CardTable__GameI__1AD3FDA4">
+            <End Role="GameInfo" EntitySet="GameInfoes" />
+            <End Role="CardTable" EntitySet="CardTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GameInfo__Player__619B8048" Association="Self.FK__GameInfo__Player__619B8048">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="GameInfo" EntitySet="GameInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GameInfo__Player__628FA481" Association="Self.FK__GameInfo__Player__628FA481">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="GameInfo" EntitySet="GameInfoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CambioModelStoreContainer" CdmEntityContainer="CambioEntities">
+          <EntitySetMapping Name="CardTables">
+            <EntityTypeMapping TypeName="CambioModel.CardTable">
+              <MappingFragment StoreEntitySet="CardTable">
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="OneOfHearts" ColumnName="OneOfHearts" />
+                <ScalarProperty Name="TwoOfHearts" ColumnName="TwoOfHearts" />
+                <ScalarProperty Name="ThreeOfHearts" ColumnName="ThreeOfHearts" />
+                <ScalarProperty Name="FourOfHearts" ColumnName="FourOfHearts" />
+                <ScalarProperty Name="FiveOfHearts" ColumnName="FiveOfHearts" />
+                <ScalarProperty Name="SixOfHearts" ColumnName="SixOfHearts" />
+                <ScalarProperty Name="SevenOfHearts" ColumnName="SevenOfHearts" />
+                <ScalarProperty Name="EightOfHearts" ColumnName="EightOfHearts" />
+                <ScalarProperty Name="NineOfHearts" ColumnName="NineOfHearts" />
+                <ScalarProperty Name="TenOfHearts" ColumnName="TenOfHearts" />
+                <ScalarProperty Name="JackOfHearts" ColumnName="JackOfHearts" />
+                <ScalarProperty Name="QueenOfHearts" ColumnName="QueenOfHearts" />
+                <ScalarProperty Name="KingOfHearts" ColumnName="KingOfHearts" />
+                <ScalarProperty Name="OneOfSpades" ColumnName="OneOfSpades" />
+                <ScalarProperty Name="TwoOfSpades" ColumnName="TwoOfSpades" />
+                <ScalarProperty Name="ThreeOfSpades" ColumnName="ThreeOfSpades" />
+                <ScalarProperty Name="FourOfSpades" ColumnName="FourOfSpades" />
+                <ScalarProperty Name="FiveOfSpades" ColumnName="FiveOfSpades" />
+                <ScalarProperty Name="SixOfSpades" ColumnName="SixOfSpades" />
+                <ScalarProperty Name="SevenOfSpades" ColumnName="SevenOfSpades" />
+                <ScalarProperty Name="EightOfSpades" ColumnName="EightOfSpades" />
+                <ScalarProperty Name="NineOfSpades" ColumnName="NineOfSpades" />
+                <ScalarProperty Name="TenOfSpades" ColumnName="TenOfSpades" />
+                <ScalarProperty Name="JackOfSpades" ColumnName="JackOfSpades" />
+                <ScalarProperty Name="QueenOfSpades" ColumnName="QueenOfSpades" />
+                <ScalarProperty Name="KingOfSpades" ColumnName="KingOfSpades" />
+                <ScalarProperty Name="OneOfClover" ColumnName="OneOfClover" />
+                <ScalarProperty Name="TwoOfClover" ColumnName="TwoOfClover" />
+                <ScalarProperty Name="ThreeOfClover" ColumnName="ThreeOfClover" />
+                <ScalarProperty Name="FourOfClover" ColumnName="FourOfClover" />
+                <ScalarProperty Name="FiveOfClover" ColumnName="FiveOfClover" />
+                <ScalarProperty Name="SixOfClover" ColumnName="SixOfClover" />
+                <ScalarProperty Name="SevenOfClover" ColumnName="SevenOfClover" />
+                <ScalarProperty Name="EightOfClover" ColumnName="EightOfClover" />
+                <ScalarProperty Name="NineOfClover" ColumnName="NineOfClover" />
+                <ScalarProperty Name="TenOfClover" ColumnName="TenOfClover" />
+                <ScalarProperty Name="JackOfClover" ColumnName="JackOfClover" />
+                <ScalarProperty Name="QueenOfClover" ColumnName="QueenOfClover" />
+                <ScalarProperty Name="KingOfClover" ColumnName="KingOfClover" />
+                <ScalarProperty Name="OneOfDiamond" ColumnName="OneOfDiamond" />
+                <ScalarProperty Name="TwoOfDiamond" ColumnName="TwoOfDiamond" />
+                <ScalarProperty Name="ThreeOfDiamond" ColumnName="ThreeOfDiamond" />
+                <ScalarProperty Name="FourOfDiamond" ColumnName="FourOfDiamond" />
+                <ScalarProperty Name="FiveOfDiamond" ColumnName="FiveOfDiamond" />
+                <ScalarProperty Name="SixOfDiamond" ColumnName="SixOfDiamond" />
+                <ScalarProperty Name="SevenOfDiamond" ColumnName="SevenOfDiamond" />
+                <ScalarProperty Name="EightOfDiamond" ColumnName="EightOfDiamond" />
+                <ScalarProperty Name="NineOfDiamond" ColumnName="NineOfDiamond" />
+                <ScalarProperty Name="TenOfDiamond" ColumnName="TenOfDiamond" />
+                <ScalarProperty Name="JackOfDiamond" ColumnName="JackOfDiamond" />
+                <ScalarProperty Name="QueenOfDiamond" ColumnName="QueenOfDiamond" />
+                <ScalarProperty Name="KingOfDiamond" ColumnName="KingOfDiamond" />
+                <ScalarProperty Name="FirstJoker" ColumnName="FirstJoker" />
+                <ScalarProperty Name="SecondJoker" ColumnName="SecondJoker" />
+                <ScalarProperty Name="ThirdJoker" ColumnName="ThirdJoker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameInfoes">
+            <EntityTypeMapping TypeName="CambioModel.GameInfo">
+              <MappingFragment StoreEntitySet="GameInfo">
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="DateOfGame" ColumnName="DateOfGame" />
+                <ScalarProperty Name="PlayerId1" ColumnName="PlayerId1" />
+                <ScalarProperty Name="PlayerId2" ColumnName="PlayerId2" />
+                <ScalarProperty Name="WinnerId" ColumnName="WinnerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CambioModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="CambioModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardMaps">
+            <EntityTypeMapping TypeName="CambioModel.CardMap">
+              <MappingFragment StoreEntitySet="CardMap">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="meaning" ColumnName="meaning" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

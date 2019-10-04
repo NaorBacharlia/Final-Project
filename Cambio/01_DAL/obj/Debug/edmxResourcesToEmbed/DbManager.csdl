@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CambioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CardTable">
+    <Key>
+      <PropertyRef Name="GameId" />
+    </Key>
+    <Property Name="GameId" Type="Int32" Nullable="false" />
+    <Property Name="OneOfHearts" Type="Int32" />
+    <Property Name="TwoOfHearts" Type="Int32" />
+    <Property Name="ThreeOfHearts" Type="Int32" />
+    <Property Name="FourOfHearts" Type="Int32" />
+    <Property Name="FiveOfHearts" Type="Int32" />
+    <Property Name="SixOfHearts" Type="Int32" />
+    <Property Name="SevenOfHearts" Type="Int32" />
+    <Property Name="EightOfHearts" Type="Int32" />
+    <Property Name="NineOfHearts" Type="Int32" />
+    <Property Name="TenOfHearts" Type="Int32" />
+    <Property Name="JackOfHearts" Type="Int32" />
+    <Property Name="QueenOfHearts" Type="Int32" />
+    <Property Name="KingOfHearts" Type="Int32" />
+    <Property Name="OneOfSpades" Type="Int32" />
+    <Property Name="TwoOfSpades" Type="Int32" />
+    <Property Name="ThreeOfSpades" Type="Int32" />
+    <Property Name="FourOfSpades" Type="Int32" />
+    <Property Name="FiveOfSpades" Type="Int32" />
+    <Property Name="SixOfSpades" Type="Int32" />
+    <Property Name="SevenOfSpades" Type="Int32" />
+    <Property Name="EightOfSpades" Type="Int32" />
+    <Property Name="NineOfSpades" Type="Int32" />
+    <Property Name="TenOfSpades" Type="Int32" />
+    <Property Name="JackOfSpades" Type="Int32" />
+    <Property Name="QueenOfSpades" Type="Int32" />
+    <Property Name="KingOfSpades" Type="Int32" />
+    <Property Name="OneOfClover" Type="Int32" />
+    <Property Name="TwoOfClover" Type="Int32" />
+    <Property Name="ThreeOfClover" Type="Int32" />
+    <Property Name="FourOfClover" Type="Int32" />
+    <Property Name="FiveOfClover" Type="Int32" />
+    <Property Name="SixOfClover" Type="Int32" />
+    <Property Name="SevenOfClover" Type="Int32" />
+    <Property Name="EightOfClover" Type="Int32" />
+    <Property Name="NineOfClover" Type="Int32" />
+    <Property Name="TenOfClover" Type="Int32" />
+    <Property Name="JackOfClover" Type="Int32" />
+    <Property Name="QueenOfClover" Type="Int32" />
+    <Property Name="KingOfClover" Type="Int32" />
+    <Property Name="OneOfDiamond" Type="Int32" />
+    <Property Name="TwoOfDiamond" Type="Int32" />
+    <Property Name="ThreeOfDiamond" Type="Int32" />
+    <Property Name="FourOfDiamond" Type="Int32" />
+    <Property Name="FiveOfDiamond" Type="Int32" />
+    <Property Name="SixOfDiamond" Type="Int32" />
+    <Property Name="SevenOfDiamond" Type="Int32" />
+    <Property Name="EightOfDiamond" Type="Int32" />
+    <Property Name="NineOfDiamond" Type="Int32" />
+    <Property Name="TenOfDiamond" Type="Int32" />
+    <Property Name="JackOfDiamond" Type="Int32" />
+    <Property Name="QueenOfDiamond" Type="Int32" />
+    <Property Name="KingOfDiamond" Type="Int32" />
+    <Property Name="FirstJoker" Type="Int32" />
+    <Property Name="SecondJoker" Type="Int32" />
+    <Property Name="ThirdJoker" Type="Int32" />
+    <NavigationProperty Name="GameInfo" Relationship="Self.FK__CardTable__GameI__1AD3FDA4" FromRole="CardTable" ToRole="GameInfo" />
+  </EntityType>
+  <EntityType Name="GameInfo">
+    <Key>
+      <PropertyRef Name="GameId" />
+    </Key>
+    <Property Name="GameId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateOfGame" Type="DateTime" Precision="3" />
+    <Property Name="PlayerId1" Type="Int32" Nullable="false" />
+    <Property Name="PlayerId2" Type="Int32" Nullable="false" />
+    <Property Name="WinnerId" Type="Int32" />
+    <NavigationProperty Name="CardTable" Relationship="Self.FK__CardTable__GameI__1AD3FDA4" FromRole="GameInfo" ToRole="CardTable" />
+    <NavigationProperty Name="UserInfo" Relationship="Self.FK__GameInfo__Player__619B8048" FromRole="GameInfo" ToRole="UserInfo" />
+    <NavigationProperty Name="UserInfo1" Relationship="Self.FK__GameInfo__Player__628FA481" FromRole="GameInfo" ToRole="UserInfo" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="userPassword" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="GameInfoes" Relationship="Self.FK__GameInfo__Player__619B8048" FromRole="UserInfo" ToRole="GameInfo" />
+    <NavigationProperty Name="GameInfoes1" Relationship="Self.FK__GameInfo__Player__628FA481" FromRole="UserInfo" ToRole="GameInfo" />
+  </EntityType>
+  <EntityType Name="CardMap">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="meaning" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__CardTable__GameI__1AD3FDA4">
+    <End Role="GameInfo" Type="Self.GameInfo" Multiplicity="1" />
+    <End Role="CardTable" Type="Self.CardTable" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="GameInfo">
+        <PropertyRef Name="GameId" />
+      </Principal>
+      <Dependent Role="CardTable">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GameInfo__Player__619B8048">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+    <End Role="GameInfo" Type="Self.GameInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GameInfo">
+        <PropertyRef Name="PlayerId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GameInfo__Player__628FA481">
+    <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="1" />
+    <End Role="GameInfo" Type="Self.GameInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GameInfo">
+        <PropertyRef Name="PlayerId2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CambioEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CardTables" EntityType="Self.CardTable" />
+    <EntitySet Name="GameInfoes" EntityType="Self.GameInfo" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+    <EntitySet Name="CardMaps" EntityType="Self.CardMap" />
+    <AssociationSet Name="FK__CardTable__GameI__1AD3FDA4" Association="Self.FK__CardTable__GameI__1AD3FDA4">
+      <End Role="GameInfo" EntitySet="GameInfoes" />
+      <End Role="CardTable" EntitySet="CardTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GameInfo__Player__619B8048" Association="Self.FK__GameInfo__Player__619B8048">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="GameInfo" EntitySet="GameInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GameInfo__Player__628FA481" Association="Self.FK__GameInfo__Player__628FA481">
+      <End Role="UserInfo" EntitySet="UserInfoes" />
+      <End Role="GameInfo" EntitySet="GameInfoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
