@@ -48,11 +48,5 @@
     <Compile Include="UserInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\01_DAL\01_DAL.csproj">
-      <Project>{cfbe0115-3b62-4889-a598-88e2db120a0a}</Project>
-      <Name>01_DAL</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

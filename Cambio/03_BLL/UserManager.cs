@@ -22,6 +22,8 @@ namespace _03_BLL
 			}
 			return hash;
 		}
+
+
 		public static string Register(UserInfoModel user)
 		{
 			using (CambioEntities db = new CambioEntities())
@@ -48,6 +50,7 @@ namespace _03_BLL
 			}
 		}
 
+
 		public static bool Login(string username, string password)
 		{
 
@@ -57,6 +60,7 @@ namespace _03_BLL
 			}
 		}
 
+		// Retrieving all data of user info..
 		public static UserInfoModel UserInfo(string username)
 		{
 			using (CambioEntities db = new CambioEntities())
@@ -74,32 +78,72 @@ namespace _03_BLL
 
 			}
 		}
+
 		public static string UpdateUser(UserInfoModel user)
 		{
+			UserInfo userchanges = new UserInfo(); 
 			using (CambioEntities db = new CambioEntities())
 			{
-				
-				UserInfo u = (new UserInfo
+				userchanges = db.UserInfoes.FirstOrDefault(x => x.Id == user.Id);
+				if (userchanges != null)
 				{
-					FirstName = user.FirstName,
-					LastName = user.LastName,
-					Email = user.Email,
-					Age = user.Age,
-					Country = user.Country,
-					UserImage = user.UserImage,
-					userPassword = Sha256(user.Password)
-				});
-				try
-				{
+					if (user.FirstName != "")
+					{
+						userchanges.FirstName = user.FirstName;
+					}
+					if (user.LastName != "")
+					{
+						userchanges.LastName = user.LastName;
+					}
+					if (user.Email != "")
+					{
+						userchanges.Email = user.Email;
+					}
+					if (user.Age!=0)
+					{
+						userchanges.Age = user.Age;
+					}
+					if (user.Country != "")
+					{
+						userchanges.Country = user.Country;
+					}
+					if (user.UserImage != "")
+					{
+						userchanges.UserImage = user.UserImage;
+					}
+					if (user.Password != "")
+					{
+						Sha256(user.Password);
+						userchanges.userPassword = user.Password;
+					}
 					db.SaveChanges();
+					return "{ 'msg': 'user has been updated' }";
 				}
-				catch (Exception e)
+				return "{ 'msg': 'Not Found' }";
+			}
+			
+		}
+
+
+		public static bool DeleteUser(string username)
+		{
+			UserInfo user = new UserInfo();
+			using (CambioEntities db = new CambioEntities())
+			{
+				user = db.UserInfoes.FirstOrDefault(x => x.Email == username);
+				if (user != null)
 				{
-					return "{ 'msg':" + e.Message + "}";
+					db.UserInfoes.Remove(user);
+					db.SaveChanges();
+					return true;
 				}
-				return "{ 'msg': 'user has been updated' }";
+				else
+				{
+					return false;
+				}
 			}
 		}
 	}
+
 
 }

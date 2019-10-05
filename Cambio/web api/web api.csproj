@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\BasicAuthFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -135,10 +136,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\01_DAL\01_DAL.csproj">
-      <Project>{CFBE0115-3B62-4889-A598-88E2DB120A0A}</Project>
-      <Name>01_DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\02_BOL\02_BOL.csproj">
       <Project>{e11d19a8-a7f2-4222-a7eb-e458ac7a68bd}</Project>
       <Name>02_BOL</Name>

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace web_api.Controllers
 {
-    public class AppController : ApiController
+	[EnableCors("*", "*", "*")]
+	public class AppController : ApiController
     {
         // GET: api/App
         public IEnumerable<string> Get()

@@ -25,6 +25,8 @@ namespace _02_BOL
 		public int QueenOfHearts { get; set; }
 		public int KingOfHearts { get; set; }
 
+	
+
 		//Spades
 		public int OneOfSpades { get; set; }
 		public int TwoOfSpades { get; set; }

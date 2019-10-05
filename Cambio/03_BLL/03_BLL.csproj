@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\01_DAL\01_DAL.csproj">
-      <Project>{cfbe0115-3b62-4889-a598-88e2db120a0a}</Project>
+      <Project>{43d4c895-a0e1-49b7-adc2-78507e1575bf}</Project>
       <Name>01_DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\02_BOL\02_BOL.csproj">

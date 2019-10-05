@@ -31,9 +31,10 @@ namespace web_api.Controllers
 
 		}
 
+
 		// http request method to login.
 		[Route("api/login")]
-		public HttpResponseMessage Post([FromBody]AuthModel authModel)
+		public HttpResponseMessage PostLogin([FromBody]AuthModel authModel)
 		{
 			IAuthContainerModel authContainerModel = AuthModel.GetJWTContainerModel(authModel.email);
 			IAuthService authService = new JWTService(authContainerModel.SecretKey);
@@ -58,15 +59,16 @@ namespace web_api.Controllers
 		[Route("api/GetUserInfo")]
 		public HttpResponseMessage GetUserInfo()
 		{
-			UserInfoModel u = new UserInfoModel(); 
+			UserInfoModel MyUserInfo = new UserInfoModel(); 
 			
 			string userName = Request.Headers.Authorization.Parameter;
 			try
 			{
-				u=UserManager.UserInfo(userName);
-				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK,u); 
+				MyUserInfo = UserManager.UserInfo(userName);
+				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK, MyUserInfo); 
 				return res;
-			} catch {
+			} catch
+			{
 				return Request.CreateResponse(HttpStatusCode.BadRequest, "error");
 			};
 		
@@ -79,22 +81,38 @@ namespace web_api.Controllers
 		}
 
 
-		[Authorize]
-		[BasicAuthFilter]
-		// PUT: api/User/5
+		[Route("api/updateuser")]
 		public HttpResponseMessage Put([FromBody]UserInfoModel user)
         {
-			return new HttpResponseMessage(HttpStatusCode.NoContent)
+			return new HttpResponseMessage(HttpStatusCode.OK)
 			{
 				Content = new ObjectContent<string>(UserManager.UpdateUser(user), new JsonMediaTypeFormatter())
 			};
-
-
 		}
 
-        // DELETE: api/User/5
-        public void Delete(int id)
+		[Route("api/deleteuser")]
+		public HttpResponseMessage DeleteUser()
         {
-        }
+			string userName = Request.Headers.Authorization.Parameter;
+			try
+			{
+				if (UserManager.DeleteUser(userName))
+				{
+					HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK);
+					return res;
+				}
+				else
+				{
+					HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.NotFound);
+					return res;
+				}
+
+			}
+			catch 
+			{
+				return Request.CreateResponse(HttpStatusCode.BadRequest, "error");
+			}
+			
+		}
     }
 }

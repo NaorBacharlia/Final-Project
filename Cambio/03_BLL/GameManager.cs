@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace _03_BLL
 {
-	class GameManager
+	
+	public class GameManager
 	{
+		
 		#region set the packet cards in array ...
 		public static int[] NewPacket(CardTableModel cardTable)
 		{
@@ -561,14 +563,7 @@ namespace _03_BLL
 			boardP2 = GetPlayerBoard(packet);
 			cardTable=SetValueByBoarders(cardTable,packet, boardP1, boardP2);
 			cardTable = SendValuesOfCardTableModel(cardTable);
-
 			return cardTable;
-
-
-
-
-
-			
 		}
 		
 			
