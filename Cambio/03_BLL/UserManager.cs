@@ -61,7 +61,7 @@ namespace _03_BLL
 		{
 			using (CambioEntities db = new CambioEntities())
 			{
-				UserInfo u = db.UserInfoes.FirstOrDefault(user => user.Email == username);
+				UserInfo u = db.UserInfoes.FirstOrDefault(user => user.Email == username);	
 				UserInfoModel userinfo = new UserInfoModel();
 				userinfo.Id = u.Id;
 				userinfo.FirstName = u.FirstName;
@@ -79,16 +79,16 @@ namespace _03_BLL
 			using (CambioEntities db = new CambioEntities())
 			{
 				
-				//UserInfo u = (new UserInfo
-				//{
-				//	FirstName = user.FirstName,
-				//	LastName = user.LastName,
-				//	Email = user.Email,
-				//	Age = user.Age,
-				//	Country = user.Country,
-				//	UserImage = user.UserImage,
-				//	userPassword = Sha256(user.Password)
-				//});
+				UserInfo u = (new UserInfo
+				{
+					FirstName = user.FirstName,
+					LastName = user.LastName,
+					Email = user.Email,
+					Age = user.Age,
+					Country = user.Country,
+					UserImage = user.UserImage,
+					userPassword = Sha256(user.Password)
+				});
 				try
 				{
 					db.SaveChanges();
