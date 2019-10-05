@@ -20,5 +20,7 @@ namespace _02_BOL
 		public int PlayerId2 { get; set; }
 
 		public int WinnerId { get; set; }
+		[Required]
+		public int CurrentPlayer { get; set; }
 	}
 }

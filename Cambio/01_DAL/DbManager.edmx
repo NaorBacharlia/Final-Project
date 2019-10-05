@@ -84,6 +84,7 @@ warning 6002: The table/view 'Cambio.dbo.CardMap' does not have a primary key de
           <Property Name="PlayerId1" Type="int" Nullable="false" />
           <Property Name="PlayerId2" Type="int" Nullable="false" />
           <Property Name="WinnerId" Type="int" />
+          <Property Name="CurrentPlayer" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -107,6 +108,7 @@ warning 6002: The table/view 'Cambio.dbo.CardMap' does not have a primary key de
           <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="UserImage" Type="varchar(max)" />
           <Property Name="userPassword" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Score" Type="int" />
         </EntityType>
         <Association Name="FK__CardTable__GameI__1AD3FDA4">
           <End Role="GameInfo" Type="Self.GameInfo" Multiplicity="1" />
@@ -244,6 +246,7 @@ warning 6002: The table/view 'Cambio.dbo.CardMap' does not have a primary key de
           <Property Name="PlayerId1" Type="Int32" Nullable="false" />
           <Property Name="PlayerId2" Type="Int32" Nullable="false" />
           <Property Name="WinnerId" Type="Int32" />
+          <Property Name="CurrentPlayer" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CardTable" Relationship="Self.FK__CardTable__GameI__1AD3FDA4" FromRole="GameInfo" ToRole="CardTable" />
           <NavigationProperty Name="UserInfo" Relationship="Self.FK__GameInfo__Player__619B8048" FromRole="GameInfo" ToRole="UserInfo" />
           <NavigationProperty Name="UserInfo1" Relationship="Self.FK__GameInfo__Player__628FA481" FromRole="GameInfo" ToRole="UserInfo" />
@@ -270,6 +273,7 @@ warning 6002: The table/view 'Cambio.dbo.CardMap' does not have a primary key de
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="userPassword" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Score" Type="Int32" />
           <NavigationProperty Name="GameInfoes" Relationship="Self.FK__GameInfo__Player__619B8048" FromRole="UserInfo" ToRole="GameInfo" />
           <NavigationProperty Name="GameInfoes1" Relationship="Self.FK__GameInfo__Player__628FA481" FromRole="UserInfo" ToRole="GameInfo" />
         </EntityType>
@@ -411,6 +415,7 @@ warning 6002: The table/view 'Cambio.dbo.CardMap' does not have a primary key de
                 <ScalarProperty Name="PlayerId1" ColumnName="PlayerId1" />
                 <ScalarProperty Name="PlayerId2" ColumnName="PlayerId2" />
                 <ScalarProperty Name="WinnerId" ColumnName="WinnerId" />
+                <ScalarProperty Name="CurrentPlayer" ColumnName="CurrentPlayer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -436,6 +441,7 @@ warning 6002: The table/view 'Cambio.dbo.CardMap' does not have a primary key de
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="UserImage" ColumnName="UserImage" />
                 <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

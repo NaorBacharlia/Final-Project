@@ -19,6 +19,7 @@ namespace _01_DAL
         public int PlayerId1 { get; set; }
         public int PlayerId2 { get; set; }
         public Nullable<int> WinnerId { get; set; }
+        public int CurrentPlayer { get; set; }
     
         public virtual CardTable CardTable { get; set; }
         public virtual UserInfo UserInfo { get; set; }

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CFBE0115-3B62-4889-A598-88E2DB120A0A}</ProjectGuid>
+    <ProjectGuid>{43D4C895-A0E1-49B7-ADC2-78507E1575BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>_01_DAL</RootNamespace>
@@ -50,38 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CardMap.cs">
-      <DependentUpon>DbManager.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CardTable.cs">
-      <DependentUpon>DbManager.tt</DependentUpon>
-    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="DbManager.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DbManager.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DbManager.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbManager.tt</DependentUpon>
-    </Compile>
     <Compile Include="DbManager.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DbManager.edmx</DependentUpon>
     </Compile>
-    <Compile Include="GameInfo.cs">
-      <DependentUpon>DbManager.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>DbManager.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UserInfo.cs">
-      <DependentUpon>DbManager.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DbManager.edmx">
@@ -100,12 +80,6 @@
     <Content Include="DbManager.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbManager.Context.cs</LastGenOutput>
-      <DependentUpon>DbManager.edmx</DependentUpon>
-    </Content>
-    <Content Include="DbManager.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbManager.edmx</DependentUpon>
-      <LastGenOutput>DbManager.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

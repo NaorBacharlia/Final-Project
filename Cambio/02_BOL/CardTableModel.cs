@@ -71,7 +71,7 @@ namespace _02_BOL
 		public int KingOfDiamond { get; set; }
 
 		//Joker
-		public int FirstJoker { get; set; }
+		public int FirstJoker { get; set; } 
 		public int SecondJoker { get; set; }
 		public int ThirdJoker { get; set; }
 	}

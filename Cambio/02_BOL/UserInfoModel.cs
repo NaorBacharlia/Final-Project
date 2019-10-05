@@ -33,6 +33,8 @@ namespace _02_BOL
 
 		[Required, StringLength(64)]
 		public string Password { get; set; }
+
+		public int Score { get; set; }
 	}
 
 

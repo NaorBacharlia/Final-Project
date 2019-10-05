@@ -9,7 +9,7 @@ namespace _02_BOL
 {
 	public class CardMapModel
 	{
-		public int GameId { get; set; }
+		public int Id { get; set; }
 		public string meaning { get; set; }
 	}
 

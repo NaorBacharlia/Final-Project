@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4ee65a1c8421417eb1706139783407a1" Name="Diagram1">
+      <Diagram DiagramId="62f9ead4e88d42b4a48e1c85c7934b4a" Name="Diagram1">
         <EntityTypeShape EntityType="CambioModel.CardTable" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CambioModel.GameInfo" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CambioModel.GameInfo" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="CambioModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CambioModel.UserInfo" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="CambioModel.CardMap" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CambioModel.UserInfo" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CambioModel.CardMap" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="CambioModel.FK__CardTable__GameI__1AD3FDA4" ManuallyRouted="false" />
         <AssociationConnector Association="CambioModel.FK__GameInfo__Player__619B8048" ManuallyRouted="false" />
         <AssociationConnector Association="CambioModel.FK__GameInfo__Player__628FA481" ManuallyRouted="false" />
