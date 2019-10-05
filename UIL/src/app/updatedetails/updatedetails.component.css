@@ -1,0 +1,75 @@
+.image {
+    background-image: url("../../assets/pictures/project.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+  h1 {
+    margin-top: 10px;
+    color: whitesmoke;
+    text-align: center;
+    font-style: oblique;
+  }
+  div.container {
+    height: 525px;
+    width: 450px;
+    margin-top: 100px;
+    background: rgba(41, 41, 38, 0.82);
+  }
+  .box {
+    margin-top: 40px;
+  }
+  .field {
+    height: 50px;
+    width: 175px;
+    margin-left: 25px;
+    padding: 5px;
+    background: rgba(41, 41, 38, 0.82);
+    border-style: solid;
+    border-width:thin;
+    border-color: #e88955;
+  }
+
+  ::placeholder {
+    color: white;
+    font-style: oblique;
+  }
+  input {
+    color: white;
+   
+    font-style: oblique;
+  }
+  input:focus{
+    outline:  none;
+  }
+  .btn-group button {
+    background-color: #e88955; 
+    border: 1px solid rgba(49, 47, 45, 0.63); /* black with opacity border */
+    color: white; /* White text */
+    font-style: oblique;
+    padding: 10px 24px; /* Some padding */
+    margin-top:7px;
+    cursor: pointer; /* Pointer/hand icon */
+    margin-left:43px;
+    float: left; /* Float the buttons side by side */
+    width: 150px;
+    height: 50px;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color:rgba(49, 47, 45, 0.63);
+}
+
+  

@@ -1,0 +1,117 @@
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+crossorigin="anonymous"
+/>
+
+<div class="container">
+    <br />
+    <h1>Register here !</h1>
+    <form   (ngSubmit)="OnSubmit(f)" #f="ngForm">
+      <div  id="user-data"> 
+      <div class="form-group">
+        <input
+          type="text"
+          class="field"
+          id="fName"
+          ngModel pattern="[a-zA-Z]*"
+          name="Firstname"
+          placeholder="First name"
+          required
+         
+        />
+       
+        <input
+          type="text"
+          class="field"
+          id="lName"
+          ngModel pattern="[a-zA-Z]*"
+          name="Lastname"
+          placeholder="Last name"
+          required
+        />
+      </div>
+      
+      <div class="form-group">
+        <input
+          type="email"
+          class="field"
+          id="Email"
+          ngModel 
+          name="Email"
+          placeholder="Email"
+          required
+          email 
+          #email="ngModel"
+        />
+        <!-- <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email</span> -->
+     
+     
+        <input
+          type="number"
+          class="field"
+          id="age"
+          ngModel 
+          name="Age"
+          placeholder="Age"
+          value="Age"
+          required
+        />
+      </div>
+    
+      <div class="form-group">
+        <input
+          type="text"
+          class="field"
+          id="country"
+          ngModel
+          name="Country"
+          placeholder="Country"
+          required
+        />
+        <input
+          type="file"
+          class="field"
+          id="image"
+          ngModel
+          name="UserImage"
+          placeholder="image"
+          required
+        />
+      </div>
+     
+      <div class="form-group">
+        
+        <input
+          type="password"
+          class="field"
+          id="password"
+          ngModel
+          name="Password"
+          placeholder="Password"
+          required 
+        />
+        <input 
+          type="password"
+          class="field"
+          id="ConfirmPassword"
+          ngModel
+          name="ConfirmPassword"
+          placeholder="Confirm password"
+          required 
+        />
+      
+    </div>
+   
+      <button  
+        id="btn1"
+        class="btn btn-primary" 
+        type="submit"  
+        [disabled]="!f.valid">
+        Register!
+      </button>
+      </div>
+    </form>
+   
+  </div>

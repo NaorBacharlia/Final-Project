@@ -1,0 +1,69 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+
+
+  <div class="container">
+    <div class="text-center">
+      <img
+        src="../../assets/pictures/cambio.png"
+        class="rounded"
+        alt="Responsive image"
+      />
+      <h1>CAMBIO</h1>
+    </div>
+
+    <form (ngSubmit)="OnSubmit(f)" #f="ngForm">
+      <div class="center">
+        <div class="input-user">
+          <div>
+            <i class="fa fa-user icon"></i>
+          </div>
+          <input
+            type="text"
+            class="userName"
+            id="userName"
+            name="userName"
+            ngModel
+            placeholder="Username"
+            required 
+          />
+        </div>
+        <br />
+        <div class="input-password">
+          <i class="fa fa-key icon"></i>
+          <input
+            type="password"
+            class="password"
+            id="Password"
+            name="Password"
+            ngModel
+            placeholder="Password"
+            required 
+          />
+        </div>
+      
+        <div class="btns">
+          <button class="btn btn-link " id="btn1" role="presentation">
+            <a routerLink="/register">sign up</a>
+          </button>
+          <br />
+          <button 
+          type="submit" 
+          class="btn btn-primary"
+          id="btn2"
+          [disabled]="!f.valid">
+            Login
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+

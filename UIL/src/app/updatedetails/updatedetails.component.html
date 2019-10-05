@@ -1,0 +1,121 @@
+   
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+
+
+  <div class="image">
+    <div class="container">
+    <br/>
+    <h1>Update your Details!</h1>
+    <form (ngSubmit)="sendDetails(f)" #f="ngForm">
+      <hr />
+      <div class="form-group">
+          <input
+          type="text"
+          class="field"
+          id="fName"
+          ngModel pattern="[a-zA-Z]*"
+          name="Firstname"
+          placeholder={{userinfo.FirstName}}
+           
+        />
+        <input
+        type="text"
+        class="field"
+        id="lName"
+        ngModel pattern="[a-zA-Z]*"
+        name="Lastname"
+        placeholder={{userinfo.LastName}}
+      
+      />
+      </div>
+      <hr />
+      <div class="form-group">
+          <input
+          type="email"
+          class="field"
+          id="Email"
+          ngModel 
+          name="Email"
+          placeholder={{userinfo.Email}}
+          email 
+          #email="ngModel"
+        />
+        <input
+          type="number"
+          class="field"
+          id="age"
+          ngModel pattern="[1-9]{1}[0-9]"
+          name="Age"
+          placeholder={{userinfo.Age}}
+          value="Age"
+         
+        />
+      </div>
+      <hr />
+      <div class="form-group">
+          <input
+          type="text"
+          class="field"
+          id="country"
+          ngModel
+          name="Country"
+          placeholder={{userinfo.Country}}
+          
+        />
+        <input
+        type="file"
+        class="field"
+        id="image"
+        ngModel
+        name="UserImage"
+        placeholder={{userinfo.UserImage}}
+        
+      />
+      </div>
+      <hr />
+      <div class="form-group">
+          <input
+          type="password"
+          class="field"
+          id="password"
+          ngModel
+          name="Password"
+          placeholder="Password"
+         
+        />
+        <input 
+          type="password"
+          class="field"
+          id="ConfirmPassword"
+          ngModel
+          name="ConfirmPassword"
+          placeholder="Confirm password"
+         
+        />
+      </div>
+      <div class="btn-group">
+      <button
+      class="btn btn-success" 
+      type="submit"  
+      id="UpdateDetails"
+      (click)="sendDetails()">
+          UpdateDetails
+      </button>
+      </div>
+      <div class="btn-group">
+      <button 
+      class="btn btn-warning"
+      type="button"
+      (click)="deleteUser()"
+       id="deletUser">
+          Delete User!
+      </button>
+    </div>
+    </form>
+   
+  </div>
