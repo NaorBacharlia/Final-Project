@@ -1,8 +1,6 @@
 ﻿using _02_BOL;
 using _03_BLL;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -13,49 +11,79 @@ namespace web_api.Controllers
 	[EnableCors("*", "*", "*")]
 	public class GameController : ApiController
     {
-        // GET: api/Game
-
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
 		[Route("api/GetStartNewGame")]
 		public HttpResponseMessage GetStartNewGame()
         {
-			UserInfoModel MyUserInfo = new UserInfoModel();
-			int userId;
-			CardTableModel MyGameCardTable = new CardTableModel();
-			string userName = Request.Headers.Authorization.Parameter;
+			int id;
+			id = Convert.ToInt32(Request.Headers.Authorization.Parameter);	
 			try
 			{
-				MyUserInfo = UserManager.UserInfo(userName);
-				userId = MyUserInfo.Id;
-				MyGameCardTable = GameManager.StartNewGame(userId);
-
-				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK, MyGameCardTable);
+				GeneralGameInfoModel MyGame = new GeneralGameInfoModel();
+				MyGame=GameManager.StartNewGame(id);
+				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK, MyGame);
 				return res;
 			}
 			catch
 			{
-				return Request.CreateResponse(HttpStatusCode.BadRequest, "error");
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, "error");
 			};
 			
         }
 
-        // POST: api/Game
-        public void Post([FromBody]string value)
-        {
-        }
+		[Route("api/GetExitGame")]
+		public HttpResponseMessage GetExitGame()
+		{
+			int id;
+			id = Convert.ToInt32(Request.Headers.Authorization.Parameter);
+			try
+			{
+				GameManager.ExitGameLogic(id);
+				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK,"WinnerId=-1");
+				return res;
+			}
+			catch
+			{
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, "error");
+			};
 
-        // PUT: api/Game/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+		}
 
-        // DELETE: api/Game/5
-        public void Delete(int id)
-        {
-        }
-    }
+		[Route("api/ContinueGame")]
+		public HttpResponseMessage GetContinueGame()
+		{
+			int Gameid;
+			Gameid = Convert.ToInt32(Request.Headers.Authorization.Parameter);
+			try
+			{
+				GeneralGameInfoModel MyGame = new GeneralGameInfoModel();
+				MyGame = GameManager.ContinueGame(Gameid);
+				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK,MyGame);
+				return res;
+			}
+			catch
+			{
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, "error");
+			};
+
+		}
+
+
+		[Route("api/OnGameRun")]
+		public HttpResponseMessage PutOnGameRun([FromBody]GameOnRunModel gameOn)
+		{
+		
+			try
+			{
+				GeneralGameInfoModel MyGame = new GeneralGameInfoModel();
+				//MyGame = GameManager.GameOnRun(gameOn);
+				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK,MyGame);
+				return res;
+			}
+			catch
+			{
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, "error");
+			};
+
+		}
+	}
 }

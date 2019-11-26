@@ -45,6 +45,8 @@
     <Compile Include="CardMapModel.cs" />
     <Compile Include="CardTableModel.cs" />
     <Compile Include="GameInfoModel.cs" />
+    <Compile Include="GameOnRunModel.cs" />
+    <Compile Include="GeneralGameInfoModel.cs" />
     <Compile Include="UserInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

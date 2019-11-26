@@ -134,7 +134,6 @@ C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Ca
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\roslyn\vbc.rsp
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\roslyn\VBCSCompiler.exe
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\01_DAL.dll
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\02_BOL.dll
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\03_BLL.dll
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\EntityFramework.dll
@@ -150,8 +149,7 @@ C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Ca
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\System.Web.Http.Cors.dll
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\System.Web.Http.dll
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\System.Web.Http.WebHost.dll
-C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\01_DAL.pdb
-C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\01_DAL.dll.config
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\01_DAL.dll
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\02_BOL.pdb
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\03_BLL.pdb
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\03_BLL.dll.config
@@ -167,6 +165,8 @@ C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Ca
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\System.Web.Http.WebHost.xml
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\Newtonsoft.Json.xml
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\01_DAL.pdb
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\bin\01_DAL.dll.config
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\obj\Debug\web api.csprojAssemblyReference.cache
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\obj\Debug\web api.csproj.CoreCompileInputs.cache
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\web api\obj\Debug\web api.csproj.CopyComplete

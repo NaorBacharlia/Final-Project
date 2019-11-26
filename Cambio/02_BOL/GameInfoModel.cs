@@ -11,16 +11,12 @@ namespace _02_BOL
 	{
 		public int GameId { get; set; }
 
-		public DateTime DateOfGame { get; set; }
+		public Nullable<System.DateTime> DateOfGame { get; set; }
 
 		[Required, Range(18, 120)]
 		public int PlayerId1 { get; set; }
 
-		[Required, Range(18, 120)]
-		public int PlayerId2 { get; set; }
-
 		public int WinnerId { get; set; }
-		[Required]
-		public int CurrentPlayer { get; set; }
+		
 	}
 }

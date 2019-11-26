@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,8 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\01_DAL\01_DAL.csproj">
-      <Project>{43d4c895-a0e1-49b7-adc2-78507e1575bf}</Project>
+    <ProjectReference Include="..\01_DAL\01_DAL\01_DAL.csproj">
+      <Project>{c79da780-bcb1-4100-8718-200221317353}</Project>
       <Name>01_DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\02_BOL\02_BOL.csproj">

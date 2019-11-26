@@ -6,10 +6,10 @@ using System.Web;
 
 namespace web_api.Models
 {
-	public class AuthModel
+	public  class AuthModel
 	{
-		public string email { get; set; }
-		public string password { get; set; }
+		public  string authModel { get; set; }
+		public  string password { get; set; }
 		public static JWTContainerModel GetJWTContainerModel(string username)
 		{
 			return new JWTContainerModel()
