@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http.Filters;
 using System.Web.Http.Results;
-using web_api.Managers;
-using web_api.Models;
 
 namespace web_api.Filters
 {
@@ -18,41 +16,40 @@ namespace web_api.Filters
 	{
 		public bool AllowMultiple => throw new NotImplementedException();
 
-		readonly IAuthContainerModel model;
-
-
-
 		public Task AuthenticateAsync(HttpAuthenticationContext context, CancellationToken cancellationToken)
 		{
-			IAuthService authService = new JWTService("a2daca33239afc2e8656496a0e2dde84");
-
-			// Store the Authorization Line content in the application header...
 			var authHead = context.Request.Headers.Authorization;
-
-			//Checking whether the client has submitted content in the authorization lines..
 			if (authHead != null && authHead.Scheme == "Basic")
 			{
-				if (authService.IsTokenValid(authHead.Parameter))
+				string loginInfo = authHead.Parameter;
+				if (loginInfo.Length < 66)
 				{
-					List<Claim> claims = authService.GetTokenClaims(authHead.Parameter).ToList();
-					var id = new ClaimsIdentity(claims, "Token");
-					context.Principal = new ClaimsPrincipal(new[] { id });
+					context.ErrorResult = new UnauthorizedResult(new AuthenticationHeaderValue[0], context.Request);
 				}
 				else
-					context.ErrorResult = new UnauthorizedResult(new AuthenticationHeaderValue[0], context.Request);
+				{
+					string password = loginInfo.Substring(0, 64);
+					string name = loginInfo.Substring(64);
+					int? userId = UserManager.getUserId(name, password);
+					if (userId!=null)
+					{
+						var claims = new List<Claim>() { new Claim(ClaimTypes.Name, userId.ToString()) };
 
+						var id = new ClaimsIdentity(claims,"Token");
+						context.Principal = new ClaimsPrincipal(new[] { id });					}
+					else
+					{
+						context.ErrorResult = new UnauthorizedResult(new AuthenticationHeaderValue[0], context.Request);
+					}
+				}	
 			}
 			return Task.FromResult(0);
-
 		}
 
+		
 		public Task ChallengeAsync(HttpAuthenticationChallengeContext context, CancellationToken cancellationToken)
 		{
 			return Task.FromResult(0);
-
 		}
-
-		//	public Task ChallengeAsync(HttpAuthenticationChallengeContext context, CancellationToken cancellationToken);
-
 	}
 }

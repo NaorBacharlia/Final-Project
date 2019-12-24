@@ -5,21 +5,22 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using web_api.Filters;
 
 namespace web_api.Controllers
 {
 	[EnableCors("*", "*", "*")]
+	[BasicAuthFilter]
 	public class GameController : ApiController
     {
+
 		[Route("api/GetStartNewGame")]
 		public HttpResponseMessage GetStartNewGame()
         {
-			int id;
-			id = Convert.ToInt32(Request.Headers.Authorization.Parameter);	
+			int userId = int.Parse(RequestContext.Principal.Identity.Name);
 			try
 			{
-				GeneralGameInfoModel MyGame = new GeneralGameInfoModel();
-				MyGame=GameManager.StartNewGame(id);
+				GeneralGameInfoModel MyGame = GameManager.StartNewGame(userId);
 				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK, MyGame);
 				return res;
 			}
@@ -33,11 +34,10 @@ namespace web_api.Controllers
 		[Route("api/GetExitGame")]
 		public HttpResponseMessage GetExitGame()
 		{
-			int id;
-			id = Convert.ToInt32(Request.Headers.Authorization.Parameter);
+			int userId = int.Parse(RequestContext.Principal.Identity.Name);
 			try
 			{
-				GameManager.ExitGameLogic(id);
+				GameManager.ExitGameLogic(userId);
 				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK,"WinnerId=-1");
 				return res;
 			}
@@ -51,12 +51,11 @@ namespace web_api.Controllers
 		[Route("api/ContinueGame")]
 		public HttpResponseMessage GetContinueGame()
 		{
-			int Gameid;
-			Gameid = Convert.ToInt32(Request.Headers.Authorization.Parameter);
+			int userId = int.Parse(RequestContext.Principal.Identity.Name);
 			try
 			{
 				GeneralGameInfoModel MyGame = new GeneralGameInfoModel();
-				MyGame = GameManager.ContinueGame(Gameid);
+				MyGame = GameManager.ContinueGame(userId);
 				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK,MyGame);
 				return res;
 			}
@@ -71,19 +70,18 @@ namespace web_api.Controllers
 		[Route("api/OnGameRun")]
 		public HttpResponseMessage PutOnGameRun([FromBody]GameOnRunModel gameOn)
 		{
-		
+			
 			try
 			{
 				GeneralGameInfoModel MyGame = new GeneralGameInfoModel();
-				//MyGame = GameManager.GameOnRun(gameOn);
-				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK,MyGame);
+				MyGame = GameManager.GameOnRun(gameOn);
+				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.Accepted,MyGame);
 				return res;
 			}
 			catch
 			{
 				return Request.CreateResponse(HttpStatusCode.InternalServerError, "error");
 			};
-
 		}
 	}
 }

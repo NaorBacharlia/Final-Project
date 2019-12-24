@@ -109,18 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\BasicAuthFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Managers\IAuthService.cs" />
-    <Compile Include="Managers\JWTService.cs" />
-    <Compile Include="Models\AuthModel.cs" />
-    <Compile Include="Models\IAuthContainerModel.cs" />
-    <Compile Include="Models\JWTContainerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,6 @@ using _02_BOL;
 using System;
 using System.Linq;
 
-
 namespace _03_BLL
 {
 	public class GameManager
@@ -789,7 +788,7 @@ namespace _03_BLL
 		#endregion
 
 		#region Exit Game function
-		public static void ExitGameLogic(int id)
+		public static void ExitGameLogic(int UserId)
 		{
 			
 			using (CambioEntities db = new CambioEntities())
@@ -797,7 +796,7 @@ namespace _03_BLL
 				
 				try
 				{
-					GameInfo game = db.GameInfoes.Where(x => x.PlayerId1 == id).FirstOrDefault(x=>x.WinnerId == null);
+					GameInfo game = db.GameInfoes.FirstOrDefault(x => x.PlayerId1 == UserId && x.WinnerId == null);
 					game.WinnerId = -1;
 					db.SaveChanges();
 				}
@@ -811,16 +810,16 @@ namespace _03_BLL
 		#endregion
 
 		#region Contiue Game logic
-		public static GeneralGameInfoModel ContinueGame(int gameId)
+		public static GeneralGameInfoModel ContinueGame(int UserId)
 		{
 			GeneralGameInfoModel myGame = new GeneralGameInfoModel();
+			
 			using (CambioEntities db = new CambioEntities())
 			{
-
 				try
 				{
-					GameInfo game = db.GameInfoes.Where(x => x.GameId == gameId).FirstOrDefault(x => x.WinnerId == null);
-					CardTable cardTable = db.CardTables.Where(x => x.GameId == game.GameId).FirstOrDefault();
+					GameInfo game = db.GameInfoes.FirstOrDefault(x => x.PlayerId1 == UserId && x.WinnerId == null);
+					CardTable cardTable = db.CardTables.FirstOrDefault(x => x.GameId == game.GameId);
 					myGame.gameInfo = ConvertToGameInfoModel(game);
 					myGame.cardTable = ConvertToCardTableModel(cardTable);
 					return myGame;
@@ -912,9 +911,8 @@ namespace _03_BLL
 		#region game on run 
 		public static GeneralGameInfoModel GameOnRun(GameOnRunModel gameOn)
 		{
-			CardTableModel cardtablemodel = new CardTableModel();
-			GamesInfoModel gamesInfoModel = new GamesInfoModel();
-			GeneralGameInfoModel generalGameInfo = new GeneralGameInfoModel();
+			
+			
 			// Choosing the appropriate game
 			using (CambioEntities db = new CambioEntities())
 			{
@@ -922,50 +920,53 @@ namespace _03_BLL
 				{
 					GameInfo gameInfo= db.GameInfoes.FirstOrDefault(x => x.GameId == gameOn.GameId);
 					CardTable cardTable = db.CardTables.FirstOrDefault(x => x.GameId == gameOn.GameId);
-					cardtablemodel = ConvertToCardTableModel(cardTable);
-					gamesInfoModel = ConvertToGameInfoModel(gameInfo);
+					CardTableModel cardtablemodel = ConvertToCardTableModel(cardTable);
+					GamesInfoModel gamesInfoModel = ConvertToGameInfoModel(gameInfo);
+
+					// Array for the function that set the location cards...
+					int[] gameOnRunCards = new int[9];
+					gameOnRunCards[0] = gameOn.FirstPlayerFrontRight;
+					gameOnRunCards[1] = gameOn.FirstPlayerFrontLeft;
+					gameOnRunCards[2] = gameOn.FirstPlayerBackRight;
+					gameOnRunCards[3] = gameOn.FirstPlayerBackLeft;
+
+					gameOnRunCards[4] = gameOn.SecondPlayerFrontRight;
+					gameOnRunCards[5] = gameOn.SecondPlayerFrontLeft;
+					gameOnRunCards[6] = gameOn.SecondPlayerBackRight;
+					gameOnRunCards[7] = gameOn.SecondPlayerBackLeft;
+
+					gameOnRunCards[8] = gameOn.UsedCard;
+					// A loop that send to the function with the location and value from CardMap table...
+					for (int i = 0; i < gameOnRunCards.Length - 1; i++)
+					{
+						SetLocationCard(cardtablemodel, gameOnRunCards[i], i + 3);
+					}
+					SetLocationCard(cardtablemodel, gameOnRunCards[8], 2); // send the used card
+					cardtablemodel = SendValuesOfCardTableModel(cardtablemodel);
+					gameOnRunCards[8] = NewUsedCard(cardtablemodel);// get a new used card
+					while (gameOnRunCards[8] == 0)
+					{
+						gameOnRunCards[8] = NewUsedCard(cardtablemodel);
+					}
+					//**********************computer moved******************
+					ComputerIsPlaying(gameOnRunCards);
+					for (int i = 4; i < gameOnRunCards.Length - 1; i++)
+					{
+						SetLocationCard(cardtablemodel, gameOnRunCards[i], i + 3);
+					}
+					SetLocationCard(cardtablemodel, gameOnRunCards[8], 2);
+					cardtablemodel = SendValuesOfCardTableModel(cardtablemodel);
+					GeneralGameInfoModel generalGameInfo = new GeneralGameInfoModel();
+					generalGameInfo.gameInfo = gamesInfoModel;
+					generalGameInfo.cardTable = cardtablemodel;
+					return generalGameInfo;
 				}
 				catch (Exception)
 				{
 					throw new Exception("error");
 				}
 			}
-			// Array for the function that set the location cards...
-			int[] gameOnRunCards = new int[9];
-			gameOnRunCards[0] = gameOn.FirstPlayerFrontRight;
-			gameOnRunCards[1] = gameOn.FirstPlayerFrontLeft;
-			gameOnRunCards[2] = gameOn.FirstPlayerBackRight;
-			gameOnRunCards[3] = gameOn.FirstPlayerBackLeft;
-
-			gameOnRunCards[4] = gameOn.SecondPlayerFrontRight;
-			gameOnRunCards[5] = gameOn.SecondPlayerFrontLeft;
-			gameOnRunCards[6] = gameOn.SecondPlayerBackRight;
-			gameOnRunCards[7] = gameOn.SecondPlayerBackLeft;
-
-			gameOnRunCards[8] = gameOn.UsedCard;
-			// A loop that send to the function with the location and value from CardMap table...
-			for (int i = 0; i < gameOnRunCards.Length-1; i++)
-			{
-				SetLocationCard(cardtablemodel, gameOnRunCards[i], i + 3);
-			}
-			SetLocationCard(cardtablemodel, gameOnRunCards[8], 2); // send the used card
-			cardtablemodel = SendValuesOfCardTableModel(cardtablemodel);
-			gameOnRunCards[8] = NewUsedCard(cardtablemodel);// get a new used card
-			while (gameOnRunCards[8] == 0)
-			{
-				gameOnRunCards[8] = NewUsedCard(cardtablemodel);
-			}
-			//**********************computer moved******************
-			ComputerIsPlaying(gameOnRunCards);
-			for (int i =4; i < gameOnRunCards.Length - 1; i++)
-			{
-				SetLocationCard(cardtablemodel, gameOnRunCards[i], i + 3);
-			}
-			SetLocationCard(cardtablemodel, gameOnRunCards[8], 2);
-			cardtablemodel = SendValuesOfCardTableModel(cardtablemodel);
-			generalGameInfo.gameInfo = gamesInfoModel;
-			generalGameInfo.cardTable = cardtablemodel;
-			return generalGameInfo;
+			
 		}
 		#endregion
 	}

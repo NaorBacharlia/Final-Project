@@ -2,11 +2,9 @@
 using _03_BLL;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using web_api.Managers;
-using web_api.Models;
+using web_api.Filters;
 
 namespace web_api.Controllers
 {
@@ -17,96 +15,62 @@ namespace web_api.Controllers
 		[Route("api/register")]
 		public HttpResponseMessage Post([FromBody]UserInfoModel user)
 		{
-
-			return new HttpResponseMessage(HttpStatusCode.Created)
-			{
-				Content = new ObjectContent<string>(UserManager.Register(user), new JsonMediaTypeFormatter())
-			};
-
+			if (UserManager.Register(user))
+				return new HttpResponseMessage(HttpStatusCode.Created);
+			return new HttpResponseMessage(HttpStatusCode.BadRequest);
 		}
 
 
 		// http request method to login.
+		[BasicAuthFilter]
 		[Route("api/login")]
 		public HttpResponseMessage GetLogin()
 		{
-
-			string userLoginInfo = Request.Headers.Authorization.Parameter;
-			string[] authModel = userLoginInfo.Split(' ');
-			string userName = authModel[0];
-			string password = authModel[1];
-
-			IAuthContainerModel authContainerModel = AuthModel.GetJWTContainerModel(userName);
-			IAuthService authService = new JWTService(authContainerModel.SecretKey);
-
-			string token = authService.GenerateToken(authContainerModel);
-			if (UserManager.Login(userName, password))
-			{
-
-				HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, new { token = token });
-				//response.Headers.Add("Content-Type", "application/json");
-				response.Headers.Add("Authorization", "Basic " + token);
-				return response;
-			}
-			else
-			{
-				return Request.CreateResponse(HttpStatusCode.BadRequest, "error");
-			}
+			//if we got to this line of code, we passed the "BasicAuthFilter" filter
+			//so we can be sure that the user logged in successfully
+			return Request.CreateResponse(HttpStatusCode.OK);
 		}
 
 
-
+		[BasicAuthFilter]
 		[Route("api/GetUserInfo")]
 		public HttpResponseMessage GetUserInfo()
 		{
-			UserInfoModel MyUserInfo = new UserInfoModel();
-
-			string userName = Request.Headers.Authorization.Parameter;
-			try
+			int userId =int.Parse(RequestContext.Principal.Identity.Name);
+			UserInfoModel info = UserManager.UserInfo(userId);
+			if (info != null)
 			{
-				MyUserInfo = UserManager.UserInfo(userName);
-				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK, MyUserInfo);
-
-				return res;
+				return Request.CreateResponse(HttpStatusCode.OK, info);
 			}
-			catch
-			{
-				return Request.CreateResponse(HttpStatusCode.BadRequest, "error");
-			};
+			return Request.CreateResponse(HttpStatusCode.BadRequest, "error");
+
 		}
 
-
+		[BasicAuthFilter]
 		[Route("api/updateuser")]
 		public HttpResponseMessage PutUpdateUser([FromBody]UserInfoModel user)
 		{
-			return new HttpResponseMessage(HttpStatusCode.OK)
+			int userId = int.Parse(RequestContext.Principal.Identity.Name);
+			if (UserManager.UpdateUser(user, userId))
 			{
-				Content = new ObjectContent<string>(UserManager.UpdateUser(user), new JsonMediaTypeFormatter())
-			};
+				return new HttpResponseMessage(HttpStatusCode.OK);
+			}
+			return new HttpResponseMessage(HttpStatusCode.BadRequest);
 		}
 
+		[BasicAuthFilter]
 		[Route("api/deleteuser")]
 		public HttpResponseMessage DeleteUser()
 		{
-			string userName = Request.Headers.Authorization.Parameter;
-			try
+			int userId = int.Parse(RequestContext.Principal.Identity.Name);
+
+			if (UserManager.DeleteUser(userId))
 			{
-				if (UserManager.DeleteUser(userName))
-				{
-					HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK);
-					return res;
-				}
-				else
-				{
-					HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.NotFound);
-					return res;
-				}
+				return Request.CreateResponse(HttpStatusCode.OK);
 
 			}
-			catch
-			{
-				return Request.CreateResponse(HttpStatusCode.BadRequest, "error");
-			}
+
+			return Request.CreateResponse(HttpStatusCode.NotFound);
 
 		}
 	}
