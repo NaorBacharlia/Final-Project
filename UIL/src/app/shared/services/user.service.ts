@@ -22,6 +22,7 @@ export class UserService {
   };
 
   public loginUser(){
+    this.myUserAuth=localStorage.getItem('authUser');
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -30,6 +31,7 @@ export class UserService {
     };
     return this.myHttpClient.get<userInfo>("http://localhost:55727/api/login",this.httpOptions);
   }
+
 
   public getUserInfo(){
     return this.myHttpClient.get<userInfo>("http://localhost:55727/api/GetUserInfo",this.httpOptions);

@@ -4,6 +4,7 @@ import { userInfo } from '../shared/models/user-info.model';
 import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
 import CryptoJS from 'crypto-js';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
