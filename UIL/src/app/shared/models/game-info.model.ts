@@ -1,12 +1,12 @@
-export interface GamesInfoModel {
+export interface GamesInfoModel
+{
   GameId: number;
 
-  DateOfGame: Date | string;
+  DateOfGame: Date | string | null;
 
   PlayerId1: number;
 
-  PlayerId2: number;
-
   WinnerId: number;
-  CurrentPlayer: number;
+  
 }
+

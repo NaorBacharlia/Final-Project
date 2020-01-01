@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { userInfo } from '../shared/models/user-info.model';
 import { UserService } from '../shared/services/user.service';
 import { Router } from '@angular/router';
-
+import CryptoJS from 'crypto-js';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,9 +16,13 @@ export class RegisterComponent  {
 
   constructor(private userService: UserService,private router: Router) { }
 
+  
   OnSubmit(){
 
-    console.log(this.signupForm);  
+    console.log(this.signupForm); 
+    this.signupForm.value.Password=CryptoJS.SHA256(this.signupForm.value.Password).toString();
+    console.log("hhhhh",this.signupForm.value.Password);
+    console.log("hhhhh",this.signupForm.value.Password.length);
     this.newUser.FirstName=this.signupForm.value.Firstname;
     this.newUser.LastName=this.signupForm.value.Lastname;
     this.newUser.Email=this.signupForm.value.Email;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse, HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { userInfo } from '../models/user-info.model';
-import { userLoginInfo } from '../models/user-login-info.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,49 +10,40 @@ export class UserService {
 
   public myUserInfo:userInfo;
   
-  
   // DI 
   constructor(private myHttpClient:HttpClient) { }
 
+  public myUserAuth=localStorage.getItem('authUser');
+  public httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'Basic '+ this.myUserAuth
+    })
+  };
 
-  public getUserInfo(){
-
-    let myToken=localStorage.getItem('token');
- 
-    let myUserName=localStorage.getItem('userName');
-    const httpOptions = {
+  public loginUser(){
+    this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        'Authorization': 'Basic '+ myUserName
+        'Authorization': 'Basic '+ this.myUserAuth
       })
     };
-    return this.myHttpClient.get<userInfo>("http://localhost:55727/api/GetUserInfo",httpOptions);
+    return this.myHttpClient.get<userInfo>("http://localhost:55727/api/login",this.httpOptions);
   }
 
-
-  public loginUser(newUserLogin:userLoginInfo){
-
-    return this.myHttpClient.post<userLoginInfo>("http://localhost:55727/api/login",newUserLogin);
+  public getUserInfo(){
+    return this.myHttpClient.get<userInfo>("http://localhost:55727/api/GetUserInfo",this.httpOptions);
   }
-
+  
   public createUser(newUser:userInfo){
-
     return this.myHttpClient.post<userInfo>("http://localhost:55727/api/register",newUser);  
   }
   
   public editUser(userDetails:userInfo){
-    console.log(userDetails,"from service");
-    return this.myHttpClient.put<userInfo>("http://localhost:55727/api/updateuser",userDetails);
+    return this.myHttpClient.put<userInfo>("http://localhost:55727/api/updateuser",userDetails,this.httpOptions);
   }
 
   public deleteUser(){
-    let myUserName=localStorage.getItem('userName');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Basic '+ myUserName
-      })
-    };
-    return this.myHttpClient.delete<userInfo>("http://localhost:55727/api/deleteuser",httpOptions);
+    return this.myHttpClient.delete<userInfo>("http://localhost:55727/api/deleteuser",this.httpOptions);
   }
 }

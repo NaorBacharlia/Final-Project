@@ -3,7 +3,7 @@ import { userInfo } from "../shared/models/user-info.model";
 import { UserService } from "../shared/services/user.service";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
-
+import CryptoJS from 'crypto-js';
 @Component({
   selector: "app-updatedetails",
   templateUrl: "./updatedetails.component.html",
@@ -41,7 +41,7 @@ export class UpdatedetailsComponent implements OnInit {
     this.userinfo.Age = this.updateForm.value.Age;
     this.userinfo.Country = this.updateForm.value.Country;
     this.userinfo.UserImage = this.updateForm.value.UserImage;
-    this.userinfo.Password = this.updateForm.value.Password;
+    this.userinfo.Password = CryptoJS.SHA256(this.updateForm.value.Password).toString();
     console.log(this.userinfo);
     this.userService.editUser(this.userinfo).subscribe(
       res => {

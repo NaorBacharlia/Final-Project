@@ -11,7 +11,8 @@ import { RegisterComponent } from './register/register.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { UpdatedetailsComponent } from './updatedetails/updatedetails.component';
 import { GameComponent } from './game/game.component';
-
+import { CardComponent } from './card/card.component';
+// import {sha1} from 'node_modules/sha1';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,14 @@ import { GameComponent } from './game/game.component';
     RegisterComponent,
     MainpageComponent,
     UpdatedetailsComponent,
-    GameComponent
+    GameComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule  
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
