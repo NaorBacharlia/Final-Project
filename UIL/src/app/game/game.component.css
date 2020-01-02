@@ -15,10 +15,15 @@
   html {
     min-height: 100vh;
   }
-  body {
-    margin: 0;
-    background: radial-gradient(#023207, #02550c);
-  }
+  .game-body {
+    position: fixed;
+    min-width: 100%;
+    background-image: url("/assets/pictures/green-background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+    }
   .title {
     margin: 52px;
   }
