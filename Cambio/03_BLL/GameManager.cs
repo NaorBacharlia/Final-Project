@@ -836,7 +836,7 @@ namespace _03_BLL
 		public static int[] ComputerIsPlaying(int[] allBoardCards)
 		{
 			Random rnd = new Random();
-			int randomNum=rnd.Next(7,11);
+			int randomNum=rnd.Next(4,8);
 			int temp;
 			var randomCall= rnd.Next(2);
 			if (randomCall == 1)
@@ -961,8 +961,9 @@ namespace _03_BLL
 					generalGameInfo.cardTable = cardtablemodel;
 					return generalGameInfo;
 				}
-				catch (Exception)
+				catch (Exception ex)
 				{
+					Console.WriteLine(ex.Message);
 					throw new Exception("error");
 				}
 			}

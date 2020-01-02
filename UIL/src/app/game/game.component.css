@@ -28,7 +28,7 @@
     margin: 52px;
   }
   .page-title {
-    color: #389203;
+    color: #1f201f;
     font-family: Creepy, serif;
     font-weight: normal;
     text-align: left;
@@ -40,10 +40,11 @@
     position: fixed;
     border: 1px solid red;
     background-color: white;
-    width: 160px;
-    height: 110px;
+    /* width: 160px;
+    height: 110px; */
     margin-top: 400px;
     margin-left: 200px;
+    transform: rotate(9deg);
     display: grid;
   }
   .BurntCard {
@@ -53,8 +54,15 @@
     height: 160px;
     width: 110px;
     margin-top: 400px;
-    margin-left: 1100px;
-    transform: rotate(20deg);
+    margin-left: 1090px;
+    display: grid;
+  }
+  .yourCardTurn {
+    position: absolute;
+    height: 160px;
+    width: 110px;
+    margin-top: 400px;
+    margin-left: 580px;
     display: grid;
   
   }

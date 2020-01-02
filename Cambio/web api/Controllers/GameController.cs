@@ -78,8 +78,9 @@ namespace web_api.Controllers
 				HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.Accepted,MyGame);
 				return res;
 			}
-			catch
+			catch(Exception ex)
 			{
+				Console.WriteLine(ex.Message);
 				return Request.CreateResponse(HttpStatusCode.InternalServerError, "error");
 			};
 		}
