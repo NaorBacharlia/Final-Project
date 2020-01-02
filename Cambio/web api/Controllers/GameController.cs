@@ -81,6 +81,10 @@ namespace web_api.Controllers
 			catch(Exception ex)
 			{
 				Console.WriteLine(ex.Message);
+				if (ex.Message == "game over")
+				{
+					return Request.CreateResponse(HttpStatusCode.Accepted, "game over");
+				}
 				return Request.CreateResponse(HttpStatusCode.InternalServerError, "error");
 			};
 		}

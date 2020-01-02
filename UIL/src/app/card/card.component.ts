@@ -19,6 +19,7 @@ import { Subscription, Observable } from 'rxjs';
 
 })//
 export class CardComponent implements OnInit {
+  @Input() id:string;
   @Input() card:Card;
   @Input() events: Observable<void>;
   private eventsSubscription: Subscription;

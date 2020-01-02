@@ -16,3 +16,8 @@ C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Ca
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\02_BOL\obj\Debug\02_BOL.csproj.CoreCompileInputs.cache
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\02_BOL\obj\Debug\02_BOL.dll
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\02_BOL\obj\Debug\02_BOL.pdb
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\02_BOL\bin\Debug\02_BOL.dll
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\02_BOL\bin\Debug\02_BOL.pdb
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\02_BOL\obj\Debug\02_BOL.csproj.CoreCompileInputs.cache
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\02_BOL\obj\Debug\02_BOL.dll
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\02_BOL\obj\Debug\02_BOL.pdb

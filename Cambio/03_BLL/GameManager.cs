@@ -2,11 +2,29 @@
 using _02_BOL;
 using System;
 using System.Linq;
+using System.Reflection;
 
 namespace _03_BLL
 {
 	public class GameManager
 	{
+		public static  bool checkWinner(CardTableModel cardTableModel)
+		{
+			int cnt = 0;
+
+			foreach (PropertyInfo prop in cardTableModel.GetType().GetProperties())
+			{
+				
+				int num = (int)prop.GetValue(cardTableModel, null);
+
+				if (num != 1)
+					cnt++;
+				////string ss = cardTableModel.
+				//Console.WriteLine(prop.GetValue(cardTableModel,null));
+			}
+
+			return cnt == cardTableModel.GetType().GetProperties().Length;
+		}
 		#region new Used card
 		public static int NewUsedCard(CardTableModel cardTableModel)
 		{
@@ -20,6 +38,7 @@ namespace _03_BLL
 					case 1:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().OneOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -27,6 +46,7 @@ namespace _03_BLL
 					case 2:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().TwoOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -34,6 +54,7 @@ namespace _03_BLL
 					case 3:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().ThreeOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -41,6 +62,7 @@ namespace _03_BLL
 					case 4:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().FourOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -48,6 +70,7 @@ namespace _03_BLL
 					case 5:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().FiveOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -55,6 +78,7 @@ namespace _03_BLL
 					case 6:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().SixOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -62,6 +86,7 @@ namespace _03_BLL
 					case 7:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().SevenOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -69,6 +94,7 @@ namespace _03_BLL
 					case 8:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().EightOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -76,6 +102,7 @@ namespace _03_BLL
 					case 9:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().NineOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -83,6 +110,7 @@ namespace _03_BLL
 					case 10:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().TenOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -90,6 +118,7 @@ namespace _03_BLL
 					case 11:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().JackOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -97,6 +126,7 @@ namespace _03_BLL
 					case 12:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().QueenOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -104,6 +134,7 @@ namespace _03_BLL
 					case 13:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().KingOfHearts == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -111,6 +142,7 @@ namespace _03_BLL
 					case 14:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().OneOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -118,6 +150,7 @@ namespace _03_BLL
 					case 15:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().TwoOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -125,6 +158,8 @@ namespace _03_BLL
 					case 16:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().ThreeOfSpades == 1)
 						{
+
+							
 							return randomNum;
 						}
 						else
@@ -132,6 +167,7 @@ namespace _03_BLL
 					case 17:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().FourOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -139,6 +175,7 @@ namespace _03_BLL
 					case 18:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().FiveOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -146,6 +183,7 @@ namespace _03_BLL
 					case 19:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().SixOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -153,6 +191,7 @@ namespace _03_BLL
 					case 20:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().SevenOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -160,6 +199,7 @@ namespace _03_BLL
 					case 21:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().EightOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -167,6 +207,7 @@ namespace _03_BLL
 					case 22:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().NineOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -174,6 +215,7 @@ namespace _03_BLL
 					case 23:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().TenOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -181,6 +223,7 @@ namespace _03_BLL
 					case 24:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().JackOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -188,6 +231,7 @@ namespace _03_BLL
 					case 25:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().QueenOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -195,6 +239,7 @@ namespace _03_BLL
 					case 26:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().KingOfSpades == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -202,6 +247,7 @@ namespace _03_BLL
 					case 27:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().OneOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -209,6 +255,7 @@ namespace _03_BLL
 					case 28:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().TwoOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -216,6 +263,7 @@ namespace _03_BLL
 					case 29:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().ThreeOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -223,6 +271,7 @@ namespace _03_BLL
 					case 30:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().FourOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -230,6 +279,7 @@ namespace _03_BLL
 					case 31:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().FiveOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -237,6 +287,7 @@ namespace _03_BLL
 					case 32:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().SixOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -244,6 +295,7 @@ namespace _03_BLL
 					case 33:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().SevenOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -251,6 +303,7 @@ namespace _03_BLL
 					case 34:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().EightOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -258,6 +311,7 @@ namespace _03_BLL
 					case 35:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().NineOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -265,6 +319,7 @@ namespace _03_BLL
 					case 36:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().TenOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -272,6 +327,7 @@ namespace _03_BLL
 					case 37:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().JackOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -279,6 +335,7 @@ namespace _03_BLL
 					case 38:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().QueenOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -286,6 +343,7 @@ namespace _03_BLL
 					case 39:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().KingOfClover == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -293,6 +351,7 @@ namespace _03_BLL
 					case 40:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().OneOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -300,6 +359,7 @@ namespace _03_BLL
 					case 41:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().TwoOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -307,6 +367,7 @@ namespace _03_BLL
 					case 42:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().ThreeOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -314,6 +375,7 @@ namespace _03_BLL
 					case 43:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().FourOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -321,6 +383,7 @@ namespace _03_BLL
 					case 44:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().FiveOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -328,6 +391,7 @@ namespace _03_BLL
 					case 45:
 						if(db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().SixOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -335,6 +399,7 @@ namespace _03_BLL
 					case 46:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().SevenOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -342,6 +407,7 @@ namespace _03_BLL
 					case 47:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().EightOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -349,6 +415,7 @@ namespace _03_BLL
 					case 48:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().NineOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -356,6 +423,7 @@ namespace _03_BLL
 					case 49:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().TenOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -363,6 +431,7 @@ namespace _03_BLL
 					case 50:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().JackOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -370,6 +439,7 @@ namespace _03_BLL
 					case 51:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().QueenOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -377,6 +447,7 @@ namespace _03_BLL
 					case 52:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().KingOfDiamond == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -384,6 +455,7 @@ namespace _03_BLL
 					case 53:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().FirstJoker == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -391,6 +463,7 @@ namespace _03_BLL
 					case 54:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().SecondJoker == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -398,6 +471,7 @@ namespace _03_BLL
 					case 55:
 						if (db.CardTables.Where(x => x.GameId == cardTableModel.GameId).FirstOrDefault().ThirdJoker == 1)
 						{
+							
 							return randomNum;
 						}
 						else
@@ -408,6 +482,7 @@ namespace _03_BLL
 			return 0;
 		}
 		#endregion
+
 
 		#region Convert To Game Info Model
 		public static GamesInfoModel ConvertToGameInfoModel(GameInfo game)
@@ -505,6 +580,7 @@ namespace _03_BLL
 			{
 
 				game = db.CardTables.FirstOrDefault(x => x.GameId == cardTable.GameId);
+				
 				try
 				{
 					
@@ -911,18 +987,20 @@ namespace _03_BLL
 		#region game on run 
 		public static GeneralGameInfoModel GameOnRun(GameOnRunModel gameOn)
 		{
-			
-			
+			//if(cnt == 24)
+			//	throw new Exception("game over");
 			// Choosing the appropriate game
 			using (CambioEntities db = new CambioEntities())
 			{
+				
 				try
 				{
 					GameInfo gameInfo= db.GameInfoes.FirstOrDefault(x => x.GameId == gameOn.GameId);
 					CardTable cardTable = db.CardTables.FirstOrDefault(x => x.GameId == gameOn.GameId);
 					CardTableModel cardtablemodel = ConvertToCardTableModel(cardTable);
 					GamesInfoModel gamesInfoModel = ConvertToGameInfoModel(gameInfo);
-
+					if(checkWinner(cardtablemodel))
+						throw new Exception("game over");
 					// Array for the function that set the location cards...
 					int[] gameOnRunCards = new int[9];
 					gameOnRunCards[0] = gameOn.FirstPlayerFrontRight;
@@ -941,7 +1019,9 @@ namespace _03_BLL
 					{
 						SetLocationCard(cardtablemodel, gameOnRunCards[i], i + 3);
 					}
-					SetLocationCard(cardtablemodel, gameOnRunCards[8], 2); // send the used card
+					SetLocationCard(cardtablemodel, gameOnRunCards[8], 2);// send the used card
+					if (checkWinner(cardtablemodel))
+						throw new Exception("game over");
 					cardtablemodel = SendValuesOfCardTableModel(cardtablemodel);
 					gameOnRunCards[8] = NewUsedCard(cardtablemodel);// get a new used card
 					while (gameOnRunCards[8] == 0)
@@ -963,6 +1043,10 @@ namespace _03_BLL
 				}
 				catch (Exception ex)
 				{
+					if (ex.Message == "game over")
+					{
+						throw ex;
+					}
 					Console.WriteLine(ex.Message);
 					throw new Exception("error");
 				}
