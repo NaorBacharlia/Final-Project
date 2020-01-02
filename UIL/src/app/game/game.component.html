@@ -1,34 +1,37 @@
-<div class="title">
-  <h1 class="page-title">Cambio</h1>
-  <div class="game-info">
-    <div>Time <span id="time-remaining">100</span></div>
-    <div>Flips <span id="flips">0</span></div>
+<div class="game-body">
+  <div class="title">
+    <h1 class="page-title">Cambio</h1>
+    <div class="game-info">
+      
+      <div>Time <span id="time-remaining">100</span></div>
+      <div>Flips <span id="flips">0</span></div>
+    </div>
   </div>
-</div>
-<div class="DeckOfCards">
-    
-
-
-</div>
-<div class="BurntCard">
-
+  <div class="DeckOfCards">
+      
   
+  
+  </div>
+  <div class="BurntCard">
+  
+    
+  </div>
+  <div class="card-game-all">
+    <div class="computer">
+      <div class="game-container">
+      <app-card></app-card>
+      <app-card></app-card>
+      <app-card></app-card>
+      <app-card></app-card>
+      </div>
+    </div>
+    <div class="play">
+      <div class="game-container">
+        <template #cardsContainer></template>
+       
+       
+      </div>
+    </div>
+  
+
 </div>
-<div class="card-game-all">
-  <div class="computer">
-    <div class="game-container">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    </div>
-  </div>
-  <div class="play">
-    <div class="game-container">
-      <app-card [card]="FirstPlayerBackLeft"></app-card>
-      <app-card [card]="FirstPlayerBackRight"></app-card>
-      <app-card [card]="FirstPlayerFrontLeft"></app-card>
-      <app-card [card]="FirstPlayerFrontRight"></app-card>
-     
-    </div>
-  </div>

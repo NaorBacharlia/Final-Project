@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {trigger, state, style, animate, transition} from '@angular/animations';
 import {Card} from './card';
+import { Subscription, Observable } from 'rxjs';
 @Component({
   selector: 'app-card',
   animations: [
@@ -19,12 +20,20 @@ import {Card} from './card';
 })//
 export class CardComponent implements OnInit {
   @Input() card:Card;
+  @Input() events: Observable<void>;
+  private eventsSubscription: Subscription;
   @Output() private clickedCardEmitter: EventEmitter<Card> = new EventEmitter();
   constructor() { }
   status:boolean=false;
   state:string='card-back';
   
   ngOnInit() {
+    this.eventsSubscription = this.events? this.events.subscribe(() => {
+      this.rotate()
+    }) : null;
+  }
+  ngOnDestroy() {
+    this.eventsSubscription.unsubscribe();
   }
   
   rotate(){

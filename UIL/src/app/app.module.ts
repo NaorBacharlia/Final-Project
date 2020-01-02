@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule ,
+  ComponentFactory,ComponentFactoryResolver} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +13,7 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { UpdatedetailsComponent } from './updatedetails/updatedetails.component';
 import { GameComponent } from './game/game.component';
 import { CardComponent } from './card/card.component';
-
+import { GameModule } from './game/game.module'
 
 @NgModule({
   declarations: [
@@ -22,14 +23,15 @@ import { CardComponent } from './card/card.component';
     MainpageComponent,
     UpdatedetailsComponent,
     GameComponent,
-    CardComponent
+    // CardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    GameModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

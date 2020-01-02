@@ -1,11 +1,16 @@
-import { NgModule } from '@angular/core';
+import { NgModule,ComponentFactory,ComponentFactoryResolver } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from '../card/card.component';
+import {CardComponent} from '../card/card.component'; 
 
 @NgModule({
   declarations: [CardComponent],
+  entryComponents: [CardComponent],
   imports: [
-    CommonModule
+    CommonModule,
+  ],
+  exports: [
+    CardComponent
   ]
 })
-export class GameModule { }
+export class GameModule {
+ }
