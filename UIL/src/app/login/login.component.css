@@ -1,125 +1,106 @@
-/* .image{
-  background-image: url("../../assets/pictures/project.jpg");
-  background-position: center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-size:100%; 
-  alt:"Responsive image";
-} */
-  div.container {  
-        height: 525px;
-        width: 450px;
-        margin-top: 100px;
-        background: rgba(41, 41, 38, 0.82);
-  }
- h1{
-  color:#e88955; 
-  font-family: 'Franklin Medium';
-  
- }
-.userName{
-    height: 40px ;
-    width: 300px;
-    margin-top: 15px;
-    margin-left: 35px;
-    padding-left: 22px;
-    background: rgba(41, 41, 38, 0.82);
-    border-style:solid;
-    border-width:thin;
-    border-color:#e88955; 
-
+div.container {
+  height: 525px;
+  width: 450px;
+  margin-top: 100px;
+  background: rgba(41, 41, 38, 0.82);
 }
-.password{
-    height: 40px ;
-    width: 300px;
-    margin-top:15px;
-    margin-left: 35px;
-    padding-left: 23px;
-    background: rgba(41, 41, 38, 0.82);
-    border-style:solid;
-    border-width:thin;
-    border-color:#e88955;
-    
+h1 {
+  color: #e88955;
+  font-family: "Franklin Medium";
 }
-::placeholder{
-    color:white;
-    font-style: oblique;
-    
+.userName {
+  height: 40px;
+  width: 300px;
+  margin-top: 15px;
+  margin-left: 35px;
+  padding-left: 22px;
+  background: rgba(41, 41, 38, 0.82);
+  border-style: solid;
+  border-width: thin;
+  border-color: #e88955;
+}
+.password {
+  height: 40px;
+  width: 300px;
+  margin-top: 15px;
+  margin-left: 35px;
+  padding-left: 23px;
+  background: rgba(41, 41, 38, 0.82);
+  border-style: solid;
+  border-width: thin;
+  border-color: #e88955;
+}
+::placeholder {
+  color: white;
+  font-style: oblique;
 }
 input {
-        color: white;
-       
-        font-style: oblique;
+  color: white;
+
+  font-style: oblique;
 }
-input:focus{
-        outline:  none;
+input:focus {
+  outline: none;
 }
-.input-user{
+.input-user {
   /* display: flex; */
-    position: relative;
+  position: relative;
 }
 
 .input-user i {
-  position:absolute;
+  position: absolute;
   left: 35px;
-  top:27px;
-  padding:1px 8px;
-  background:none;
+  top: 27px;
+  padding: 1px 8px;
+  background: none;
   color: white;
- 
 }
-.input-password{
-    position: relative;
+.input-password {
+  position: relative;
 }
 .input-password i {
-  position:absolute;
+  position: absolute;
   left: 35px;
-  top:15px;
+  top: 15px;
   padding: 12px 6px;
-  background:none;
+  background: none;
   color: white;
- 
 }
-.center{
-  margin:auto;
-  width: 85%; 
+.center {
+  margin: auto;
+  width: 85%;
 }
 a {
-  
   color: white;
   text-decoration: none;
   background-color: transparent;
 }
-#btn1{
-    margin-top:10px;
-    color: white;
-    margin-left:39%; 
-    background-color:unset ;
-    font-style: oblique;
-    border: unset;
+#btn1 {
+  margin-top: 10px;
+  color: white;
+  margin-left: 39%;
+  background-color: unset;
+  font-style: oblique;
+  border: unset;
 }
-#btn2{
-    margin-left:24%; 
-    margin-top:10px;
-    border: unset;
-    background-color:#e88955;  
-    color: white;
-    font-style: oblique;
-    font-size: 27px;
-    width: 175px;
-    height: 50px;
-    text-align: center;
+#btn2 {
+  margin-left: 24%;
+  margin-top: 10px;
+  border: unset;
+  background-color: #e88955;
+  color: white;
+  font-style: oblique;
+  font-size: 27px;
+  width: 175px;
+  height: 50px;
+  text-align: center;
 }
 
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
 
-.rounded{
+.rounded {
   width: 200px;
   height: 225px;
 }
-

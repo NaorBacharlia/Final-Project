@@ -73,6 +73,10 @@ namespace _03_BLL
 				userinfo.Email = u.Email;
 				userinfo.Age = u.Age;
 				userinfo.Country = u.Country;
+				if (u.Score != null)
+					userinfo.Score = u.Score;
+				else
+					userinfo.Score = 0;
 				userinfo.UserImage = u.UserImage;
 				return userinfo;
 
@@ -86,7 +90,8 @@ namespace _03_BLL
 
 	}
 
-	public static bool UpdateUser(UserInfoModel user, int userId)
+		
+		public static bool UpdateUser(UserInfoModel user, int userId)
 	{
 		UserInfo userchanges = new UserInfo();
 

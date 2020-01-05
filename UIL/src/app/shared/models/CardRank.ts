@@ -14,65 +14,39 @@ export enum CardRank {
   KingOfHearts = -1,
   OneOfSpades = 1,
   TwoOfSpades = 2,
-
   ThreeOfSpades = 3,
-
   FourOfSpades = 4,
-
   FiveOfSpades = 5,
-
   SixOfSpades = 6,
-
   SevenOfSpades = 7,
-
   EightOfSpades = 8,
-
   NineOfSpades = 9,
-
   TenOfSpades = 10,
   JackOfSpades = 10,
   QueenOfSpades = 10,
   KingOfSpades = 10,
   OneOfClover = 1,
-
   TwoOfClover = 2,
-
   ThreeOfClover = 3,
-
   FourOfClover = 4,
-
   FiveOfClover = 5,
-
   SixOfClover = 6,
-
   SevenOfClover = 7,
-
   EightOfClover = 8,
-
   NineOfClover = 9,
-
   TenOfClover = 10,
   JackOfClover = 10,
   QueenOfClover = 10,
   KingOfClover = 10,
   OneOfDiamond = 1,
-
   TwoOfDiamond = 2,
-
   ThreeOfDiamond = 3,
-
   FourOfDiamond = 4,
-
   FiveOfDiamond = 5,
-
   SixOfDiamond = 6,
-
   SevenOfDiamond = 7,
-
   EightOfDiamond = 8,
-
   NineOfDiamond = 9,
-
   TenOfDiamond = 10,
   JackOfDiamond = 10,
   QueenOfDiamond = 10,

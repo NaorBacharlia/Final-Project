@@ -1,93 +1,114 @@
 @font-face {
-    font-family: "Creepy";
-    src: url("../../assets/Fonts/Creepy.woff") format("woff"),
-      url("../../assets/Fonts/Creepy.woff2") format("woff2");
-  }
-  @font-face {
-    font-family: "Lunacy";
-    src: url("../../assets/Fonts/Lunacy.woff") format("woff"),
-      url("../../assets/Fonts/Lunacy.woff2") format("woff2");
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  html {
-    min-height: 100vh;
-  }
-  .game-body {
-    position: fixed;
-    min-width: 100%;
-    background-image: url("/assets/pictures/green-background.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-    background-size: cover;
-    }
-  .title {
-    margin: 52px;
-  }
-  .page-title {
-    color: #1f201f;
-    font-family: Creepy, serif;
-    font-weight: normal;
-    text-align: left;
-    font-size: 6em;
-    float: left;
-    margin: 0;
-  }
-  .DeckOfCards {
-    position: fixed;
-    border: 1px solid red;
-    background-color: white;
-    /* width: 160px;
-    height: 110px; */
-    margin-top: 400px;
-    margin-left: 200px;
-    transform: rotate(9deg);
-    display: grid;
-  }
-  .BurntCard {
-    position: absolute;
-    border: 1px solid red;
-    background-color: white;
-    height: 160px;
-    width: 110px;
-    margin-top: 400px;
-    margin-left: 1090px;
-    display: grid;
-  }
-  .yourCardTurn {
-    position: absolute;
-    height: 160px;
-    width: 110px;
-    margin-top: 400px;
-    margin-left: 580px;
-    display: grid;
-  
-  }
-  .game-info {
-    font-family: Lunacy, serif;
-    color: #7af334;
-    font-size: 4em;
-    float: right;
-  }
-  .computer {
-    margin-right: 255px;
-    margin-bottom: 310px;
-  }
-  .game-container {
-    display: grid;
-    grid-template-columns: repeat(2, 120px);
-    grid-gap: 10px;
-    margin: 50px;
-    justify-content: center;
-  }
-  .game-info-container {
-    grid-column: 1/-1;
-    display: flex;
-    justify-content: space-between;
-  }
-  
+  font-family: "Creepy";
+  src: url("../../assets/Fonts/Creepy.woff") format("woff"),
+    url("../../assets/Fonts/Creepy.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lunacy";
+  src: url("../../assets/Fonts/Lunacy.woff") format("woff"),
+    url("../../assets/Fonts/Lunacy.woff2") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  min-height: 100vh;
+}
+.game-body {
+  position: fixed;
+  min-width: 100%;
+  background-image: url("/assets/pictures/green-background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.title {
+  margin: 52px;
+}
+.page-title {
+  color: #1f201f;
+  font-family: Creepy, serif;
+  font-weight: normal;
+  text-align: left;
+  font-size: 6em;
+  float: left;
+  margin: 0;
+}
+.DeckOfCards {
+  position: fixed;
+  border: 1px solid red;
+  background-color: white;
+  margin-top: 400px;
+  margin-left: 200px;
+  transform: rotate(9deg);
+  display: grid;
+}
+.BurntCard {
+  position: absolute;
+  border: 1px solid red;
+  background-color: white;
+  height: 160px;
+  width: 110px;
+  margin-top: 400px;
+  margin-left: 1120px;
+  display: grid;
+}
+.yourCardTurn {
+  position: absolute;
+  height: 160px;
+  width: 110px;
+  margin-top: 400px;
+  margin-left: 580px;
+  display: grid;
+}
+.game-info {
+  font-family: Lunacy, serif;
+  color: #7af334;
+  font-size: 4em;
+  float: right;
+}
+.computer {
+  margin-right: 255px;
+  margin-bottom: 310px;
+}
+
+.exitgame {
+  height: 40px;
+  width: 130px;
+  margin-bottom:125px;
+  margin-left: 185px;
+  font-family: Creepy, serif;
+  font-size: large;
+  background-color: #1f201f;
+  color: #7af334;
+  cursor: pointer;
+  border: 1px solid rgba(49, 47, 45, 0.63);
+}
+
+.cambio-btn{
+  height: 130px;
+  width: 130px;
+  margin-right: 150px;
+  margin-bottom:830px;
+  background: url(../../assets/pictures/Cambio-logo.png);
+  float: right;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  grid-gap: 10px;
+  margin: 50px;
+  justify-content: center;
+}
+.game-info-container {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+}
+
 
   

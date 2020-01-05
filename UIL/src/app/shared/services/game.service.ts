@@ -28,4 +28,11 @@ export class GameService {
   public gameonrun(gameonrun:GameOnRunModel){
     return this.myHttpClient.put<GeneralGameInfoModel>("http://localhost:55727/api/OnGameRun",gameonrun,this.httpOptions);
   }
+  public setwinner(winnerId:number)
+  {
+    return this.myHttpClient.put<boolean>("http://localhost:55727/api/PutSetwinnerGame",winnerId,this.httpOptions);
+  }
+  public exitGame(){
+    return this.myHttpClient.get<string>("http://localhost:55727/api/GetExitGame",this.httpOptions);
+  }
 }

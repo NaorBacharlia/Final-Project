@@ -88,5 +88,32 @@ namespace web_api.Controllers
 				return Request.CreateResponse(HttpStatusCode.InternalServerError, "error");
 			};
 		}
+
+		[Route("api/PutSetwinnerGame")]
+		public HttpResponseMessage PutSetwinnerGame([FromBody]int id)
+		{
+			int userId = int.Parse(RequestContext.Principal.Identity.Name);
+			try
+			{
+				if (id != -1)
+				{
+					GameManager.setWinner(userId, userId);
+					HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK,true);
+					return res;
+				}
+				else
+				{
+					GameManager.setWinner(userId,id);
+					HttpResponseMessage res = Request.CreateResponse(HttpStatusCode.OK,true);
+					return res;
+				}
+			}
+			catch
+			{
+				return Request.CreateResponse(HttpStatusCode.InternalServerError, false);
+			};
+
+		}
+
 	}
 }

@@ -1,31 +1,44 @@
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous"
-  />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
-  <div class="container">
-      <div class="User">
-      <i class="fa fa-user-circle-o" id="usericon"></i>
-      <p >{{ username}}<p>
-      </div>
-      <div class="btn-group">
-       <button (click)="moveToUpdate()" id="editProfile" class="btn btn-success">
-              Edit Profile
-      </button>
-      </div>
-      <div class="btn-group">
-      <button (click)="moveToStartGame()" type="button" id="startGame" class="btn btn-success">
-          Strat Game
-      </button>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 
-    </div>
-    <div class="btn-group">
-      <button (click)="showscore()"  type="button" id="Score" class="btn btn-success">
-              Score
-      </button>
-    </div>
-      
+<div class="container">
+  <div class="User">
+    <i class="fa fa-user-circle-o" id="usericon"></i>
+    <p>{{ username }}</p>
+    <p>{{score}}</p>
   </div>
+  
+  <div class="btn-group">
+    <button (click)="moveToUpdate()" id="editProfile" class="btn btn-success">
+      Edit Profile
+    </button>
+  </div>
+  <div class="btn-group">
+    <button
+      (click)="moveToStartGame()"
+      type="button"
+      id="startGame"
+      class="btn btn-success"
+    >
+      Strat Game
+    </button>
+  </div>
+  <div class="btn-group">
+    <button
+      (click)="showscore()"
+      type="button"
+      id="Score"
+      class="btn btn-success"
+    >
+      Score
+    </button>
+  </div>
+</div>

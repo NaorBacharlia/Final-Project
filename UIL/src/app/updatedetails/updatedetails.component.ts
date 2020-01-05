@@ -3,7 +3,7 @@ import { userInfo } from "../shared/models/user-info.model";
 import { UserService } from "../shared/services/user.service";
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
-import CryptoJS from 'crypto-js';
+import CryptoJS from "crypto-js";
 @Component({
   selector: "app-updatedetails",
   templateUrl: "./updatedetails.component.html",

@@ -28,7 +28,7 @@ namespace _01_DAL
         public string Email { get; set; }
         public string UserImage { get; set; }
         public string userPassword { get; set; }
-        public Nullable<int> Score { get; set; }
+        public int Score { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GameInfo> GameInfoes { get; set; }

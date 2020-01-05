@@ -22,6 +22,7 @@ import { CardValue } from "../shared/models/CardValue";
 import { CardRank } from "../shared/models/CardRank";
 import { Subject, Observable } from "rxjs";
 import { Card } from "../card/card";
+import { Router } from '@angular/router';
 @Component({
   selector: "app-game",
   templateUrl: "./game.component.html",
@@ -46,13 +47,15 @@ export class GameComponent implements OnInit {
   UsedCardEvent: Subject<void> = new Subject<void>();
   CardTurnEvent: Subject<void> = new Subject<void>();
 
+  public Win:string;
   public myGame: GeneralGameInfoModel;
   public gameRun: GameOnRunModel;
   // public cardvalue:CardValue;
   constructor(
     private gameservice: GameService,
     private resolver: ComponentFactoryResolver,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private router: Router
   ) {}
   status: boolean = false;
   state: string = "card-back";
@@ -86,7 +89,6 @@ export class GameComponent implements OnInit {
   }
 
   setLocationCards() {
-  
     let arrayNames = [];
     if (this.myGame) {
       for (let value = 3; value <= 10; value++) {
@@ -217,7 +219,7 @@ export class GameComponent implements OnInit {
           this.allowTakeCard(true);
         } else {
           console.log("game over");
-          this.checkWinner()
+          this.checkWinner();
           console.log("this.gameRun", this.gameRun);
         }
       },
@@ -353,30 +355,72 @@ export class GameComponent implements OnInit {
     }
   }
 
-  checkWinner(){
-    let userRank =    this.getUserRank(this.gameRun.FirstPlayerBackLeft,this.gameRun.FirstPlayerBackRight,this.gameRun.FirstPlayerFrontLeft,this.gameRun.FirstPlayerFrontRight);
-    let computerRank = this.getUserRank(this.gameRun.SecondPlayerBackLeft,this.gameRun.SecondPlayerBackRight,this.gameRun.SecondPlayerFrontLeft,this.gameRun.SecondPlayerFrontRight);
-    if(userRank < computerRank)
-      console.log(`user Wins ${userRank} : ${computerRank}`)
-    else
-      console.log(`computer rank  ${computerRank} : ${userRank}`)
+  checkWinner() {
+    let userRank = this.getUserRank(
+      this.gameRun.FirstPlayerBackLeft,
+      this.gameRun.FirstPlayerBackRight,
+      this.gameRun.FirstPlayerFrontLeft,
+      this.gameRun.FirstPlayerFrontRight
+    );
+    let computerRank = this.getUserRank(
+      this.gameRun.SecondPlayerBackLeft,
+      this.gameRun.SecondPlayerBackRight,
+      this.gameRun.SecondPlayerFrontLeft,
+      this.gameRun.SecondPlayerFrontRight
+    );
+    if (userRank < computerRank)
+    {
+      
+      this.gameservice.setwinner(this.myGame.gameInfo.PlayerId1).subscribe(
+        res => {
+          console.log(res); 
+          this.router.navigate(["./mainpage"]);
+        },
+        err => {
+         console.log(err);});
+      console.log(`user Wins ${userRank} : ${computerRank}`);
+    
+    }
+    else{ 
+      console.log(`computer rank  ${computerRank} : ${userRank}`);
+      this.gameservice.setwinner(-1).subscribe(
+        res => {
+        
+          this.router.navigate(["./mainpage"]);
+        },
+        err => {
+         console.log(err);
+        });
+    }
   }
-  getUserRank(card1:number,card2:number,card3:number,card4:number):number{
+  getUserRank(card1: number,card2: number,card3: number, card4: number): number {
+    let rank = 0;
 
-      let rank = 0;
-
-      rank += CardRank[CardValue[card1]]
-      console.log("card1",CardRank[CardValue[card1]], "Value",CardValue[card1])
-      rank += CardRank[CardValue[card2]]
-      console.log("card2",CardRank[CardValue[card2]],"Value",CardValue[card2])
-      rank += CardRank[CardValue[card3]]
-      console.log("card3",CardRank[CardValue[card3]],"Value",CardValue[card3])
-      rank += CardRank[CardValue[card4]]
-      console.log("card4",CardRank[CardValue[card4]],"Value",CardValue[card4])
-      return rank
-
+    rank += CardRank[CardValue[card1]];
+    console.log("card1", CardRank[CardValue[card1]], "Value", CardValue[card1]);
+    rank += CardRank[CardValue[card2]];
+    console.log("card2", CardRank[CardValue[card2]], "Value", CardValue[card2]);
+    rank += CardRank[CardValue[card3]];
+    console.log("card3", CardRank[CardValue[card3]], "Value", CardValue[card3]);
+    rank += CardRank[CardValue[card4]];
+    console.log("card4", CardRank[CardValue[card4]], "Value", CardValue[card4]);
+    return rank;
   }
   clearDeck(container: any) {
     container.clear();
   }
+
+  exitGame(){
+    this.gameservice.exitGame().subscribe(
+      res=>{
+        console.log(res)
+        this.router.navigate(["./mainpage"]);
+      },
+      err=>{
+          console.log(err);
+      }
+    );
+  }
+  
+
 }

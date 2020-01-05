@@ -8,6 +8,7 @@ namespace _03_BLL
 {
 	public class GameManager
 	{
+		#region check winner
 		public static  bool checkWinner(CardTableModel cardTableModel)
 		{
 			int cnt = 0;
@@ -19,12 +20,51 @@ namespace _03_BLL
 
 				if (num != 1)
 					cnt++;
-				////string ss = cardTableModel.
-				//Console.WriteLine(prop.GetValue(cardTableModel,null));
 			}
 
 			return cnt == cardTableModel.GetType().GetProperties().Length;
 		}
+		#endregion
+
+		public static bool setWinner(int UserId,int idOfWinner)
+		{
+			using (CambioEntities db = new CambioEntities())
+			{
+
+				try
+				{
+					if (idOfWinner != -1)
+					{
+						UserInfo userInfo = db.UserInfoes.FirstOrDefault(x => x.Id == UserId);
+						GameInfo game = db.GameInfoes.FirstOrDefault(x => x.PlayerId1 == UserId && x.WinnerId == null);
+						if (userInfo.Score == null)
+						{
+							userInfo.Score = 100;
+						}
+						else
+						{
+							userInfo.Score += 100;
+						}
+						game.WinnerId = UserId;
+						db.SaveChanges();
+						return true;
+					}
+					else
+					{
+						GameInfo game = db.GameInfoes.FirstOrDefault(x => x.PlayerId1 == UserId && x.WinnerId == null);
+						game.WinnerId = -1;
+						db.SaveChanges();
+						return true;
+					}
+				}
+				catch (Exception)
+				{
+					throw new Exception("error");
+				}
+			}
+
+		}
+
 		#region new Used card
 		public static int NewUsedCard(CardTableModel cardTableModel)
 		{
@@ -482,7 +522,6 @@ namespace _03_BLL
 			return 0;
 		}
 		#endregion
-
 
 		#region Convert To Game Info Model
 		public static GamesInfoModel ConvertToGameInfoModel(GameInfo game)
@@ -987,9 +1026,6 @@ namespace _03_BLL
 		#region game on run 
 		public static GeneralGameInfoModel GameOnRun(GameOnRunModel gameOn)
 		{
-			//if(cnt == 24)
-			//	throw new Exception("game over");
-			// Choosing the appropriate game
 			using (CambioEntities db = new CambioEntities())
 			{
 				

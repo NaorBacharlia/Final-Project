@@ -10,3 +10,15 @@ C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Ca
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\01_DAL\01_DAL\obj\Debug\01_DAL.csproj.CopyComplete
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\01_DAL\01_DAL\obj\Debug\01_DAL.dll
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Cambio\01_DAL\01_DAL\obj\Debug\01_DAL.pdb
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\bin\Debug\01_DAL.dll.config
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\bin\Debug\01_DAL.dll
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\bin\Debug\01_DAL.pdb
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\bin\Debug\EntityFramework.dll
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\bin\Debug\EntityFramework.xml
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\obj\Debug\01_DAL.csprojAssemblyReference.cache
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\obj\Debug\01_DAL.csproj.CoreCompileInputs.cache
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\obj\Debug\01_DAL.csproj.CopyComplete
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\obj\Debug\01_DAL.dll
+C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\01_DAL\01_DAL\obj\Debug\01_DAL.pdb

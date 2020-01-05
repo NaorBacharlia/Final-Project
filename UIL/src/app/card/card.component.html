@@ -1,5 +1,10 @@
-<div class="card" id="{{id}}">
-  <div *ngIf="!status"  [@ngClass]="status ? 'card-front':'card-back'" class="card-face" [@rotatedState]='state'>
+<div class="card" id="{{ id }}">
+  <div
+    *ngIf="!status"
+    [@ngClass]="status ? 'card-front' : 'card-back'"
+    class="card-face"
+    [@rotatedState]="state"
+  >
     <img
       src="../../assets/pictures/Red hurt.png"
       class="cob-web cob-web-top-left"
@@ -19,7 +24,11 @@
     <div class="spider">Cambio</div>
     <!-- <img src="../../assets/pictures/Spider.png" class="spider" /> -->
   </div>
-  <div *ngIf="status"  [@ngClass]="status ? 'card-back':'card-front'" [@rotatedState]='state'>
-  <img [src]="card?.cardpic" style="width: 110px; height: 160px;"/>
+  <div
+    *ngIf="status"
+    [@ngClass]="status ? 'card-back' : 'card-front'"
+    [@rotatedState]="state"
+  >
+    <img [src]="card?.cardpic" style="width: 110px; height: 160px;" />
   </div>
 </div>

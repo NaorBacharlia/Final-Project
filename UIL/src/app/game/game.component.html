@@ -2,9 +2,7 @@
   <div class="title">
     <h1 class="page-title">Cambio</h1>
     <div class="game-info">
-      
-      <div>Time <span id="time-remaining">100</span></div>
-      <div>Flips <span id="flips">0</span></div>
+      <div>Time <span id="time-remaining">100</span></div> 
     </div>
   </div>
   <div class="DeckOfCards" id="DeckOfCards">
@@ -17,22 +15,26 @@
   <div class="yourCardTurn">
     <template #CardTurn></template>
   </div>
+
   <div class="card-game-all">
     <div class="computer">
       <div class="game-container">
-      <app-card></app-card>
-      <app-card></app-card>
-      <app-card></app-card>
-      <app-card></app-card>
+        <app-card></app-card>
+        <app-card></app-card>
+        <app-card></app-card>
+        <app-card></app-card>
       </div>
     </div>
     <div class="play">
       <div class="game-container">
         <template #cardsContainer></template>
-       
-       
       </div>
+      <div class="btn-group">
+        <button class="exitgame" (click)="exitGame()">Exit Game</button>
+        <button class="cambio-btn" (click)="checkWinner()"></button>
+      </div>
+   
+     
     </div>
-  
-
+  </div>
 </div>
