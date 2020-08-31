@@ -255,7 +255,6 @@ C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Fi
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\web api\bin\01_DAL.pdb
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\web api\bin\01_DAL.dll.config
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\web api\obj\Debug\web api.csprojAssemblyReference.cache
-C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\web api\obj\Debug\web api.csproj.CoreCompileInputs.cache
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\web api\obj\Debug\web api.csproj.CopyComplete
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\web api\obj\Debug\web api.dll
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\web api\obj\Debug\web api.pdb

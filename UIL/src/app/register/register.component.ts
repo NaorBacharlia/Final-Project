@@ -15,9 +15,24 @@ export class RegisterComponent {
 
   public newUser: userInfo = new userInfo();
 
-  constructor(private userService: UserService, private router: Router) {}
+  public req=new XMLHttpRequest();
 
+  
+
+  constructor(private userService: UserService, private router: Router) {}
+  getAllCountries(){
+    this.req.open("GET", "https://restcountries.eu/rest/v2/all?fields=name;flag");
+    this.req.onreadystatechange = () => {
+      if(this.req.readyState==4){
+        console.log(this.req.status,this.req.response);
+        let x=JSON.parse(this.req.response);
+        
+      }
+
+    }
+  }
   OnSubmit() {
+    
     console.log(this.signupForm);
     this.signupForm.value.Password = CryptoJS.SHA256(
       this.signupForm.value.Password

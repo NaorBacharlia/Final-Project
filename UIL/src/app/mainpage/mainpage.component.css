@@ -22,6 +22,23 @@ p {
   float: left; /* Float the buttons side by side */
 }
 
+.btn-gameRules{
+  position:absolute; 
+  margin-left:-50px;
+  left:50%;
+  width:100px;
+  bottom:25px;
+}
+#btnGameRules{
+  border:unset;
+  background-color: unset;
+  font-style: oblique; 
+ 
+}
+.btn-gameRules:hover {
+  background-color: black;
+  border-radius: 12px;
+}
 /* Clear floats (clearfix hack) */
 .btn-group:after {
   content: "";

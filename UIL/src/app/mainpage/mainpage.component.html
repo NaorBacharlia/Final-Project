@@ -13,7 +13,7 @@
   <div class="User">
     <i class="fa fa-user-circle-o" id="usericon"></i>
     <p>{{ username }}</p>
-    <p>{{score}}</p>
+  
   </div>
   
   <div class="btn-group">
@@ -28,7 +28,7 @@
       id="startGame"
       class="btn btn-success"
     >
-      Strat Game
+    Start Game
     </button>
   </div>
   <div class="btn-group">
@@ -39,6 +39,11 @@
       class="btn btn-success"
     >
       Score
+    </button>
+  </div>
+  <div class="btn-gameRules">
+    <button (click)="showRulesGame()" class="btn btn-success" id="btnGameRules" >
+      Game Rules
     </button>
   </div>
 </div>

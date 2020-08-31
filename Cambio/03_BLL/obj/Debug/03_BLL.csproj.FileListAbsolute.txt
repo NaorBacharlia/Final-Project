@@ -45,7 +45,6 @@ C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Fi
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\03_BLL\bin\Debug\EntityFramework.xml
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\03_BLL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\03_BLL\obj\Debug\03_BLL.csprojAssemblyReference.cache
-C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\03_BLL\obj\Debug\03_BLL.csproj.CoreCompileInputs.cache
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\03_BLL\obj\Debug\03_BLL.csproj.CopyComplete
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\03_BLL\obj\Debug\03_BLL.dll
 C:\Users\naorb\OneDrive\Desktop\Google Drive\לימודים\Final Project -N-\Final-Project\Cambio\03_BLL\obj\Debug\03_BLL.pdb

@@ -23,6 +23,8 @@ import { CardRank } from "../shared/models/CardRank";
 import { Subject, Observable } from "rxjs";
 import { Card } from "../card/card";
 import { Router } from '@angular/router';
+import { WinnerComponent } from '../winner/winner.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: "app-game",
   templateUrl: "./game.component.html",
@@ -55,7 +57,8 @@ export class GameComponent implements OnInit {
     private gameservice: GameService,
     private resolver: ComponentFactoryResolver,
     private elementRef: ElementRef,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {}
   status: boolean = false;
   state: string = "card-back";
@@ -371,10 +374,18 @@ export class GameComponent implements OnInit {
     if (userRank < computerRank)
     {
       
-      this.gameservice.setwinner(this.myGame.gameInfo.PlayerId1).subscribe(
+      this.gameservice.setwinner(this.myGame.gameInfo.PlayerId1, userRank, computerRank).subscribe(
         res => {
           console.log(res); 
-          this.router.navigate(["./mainpage"]);
+          // this.router.navigate(["./mainpage"]);
+          let dialogRef = this.dialog.open(WinnerComponent, {
+            height: '500px',
+            width: '750px',
+          });
+          setTimeout(() => {
+            dialogRef.close();
+            this.router.navigate(["/mainpage"])
+          }, 3000);
         },
         err => {
          console.log(err);});
@@ -383,10 +394,18 @@ export class GameComponent implements OnInit {
     }
     else{ 
       console.log(`computer rank  ${computerRank} : ${userRank}`);
-      this.gameservice.setwinner(-1).subscribe(
+      this.gameservice.setwinner(-1, userRank, computerRank).subscribe(
         res => {
-        
-          this.router.navigate(["./mainpage"]);
+          let dialogRef = this.dialog.open(WinnerComponent, {
+            height: '500px',
+            width: '750px',
+            hasBackdrop: false,
+          });
+          setTimeout(() => {
+            dialogRef.close();
+            this.router.navigate(["/mainpage"])
+          }, 3000);
+          // this.router.navigate(["./mainpage"]);
         },
         err => {
          console.log(err);
